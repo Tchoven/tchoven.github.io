@@ -20,7 +20,7 @@ body {
 .text-justify { text-align: justify; } 
 .card-bg { background-color: #1a2c46; }
 
-/* ANIMAÇÕES DE ENTRADA (PARA ELEMENTOS ESPECÍFICOS) */
+/* ANIMAÇÕES DE ENTRADA (PARA ELEMENTOS ESPECÍFICOS NA PÁGINA INICIAL) */
 .animate-on-load { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .animation-delay-200ms { animation-delay: 0.2s; } 
@@ -47,7 +47,8 @@ body {
     background-color: #FFD500;
     transition: width 0.3s ease-in-out;
 }
-.nav-link:hover::after {
+.nav-link:hover, .nav-link:hover::after {
+    color: #FFD500;
     width: 100%;
 }
 .nav-link.active {
@@ -67,7 +68,7 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
 
-/* ==== NOVA ANIMAÇÃO DE TRANSIÇÃO DE PÁGINA ==== */
+/* ANIMAÇÃO DE TRANSIÇÃO DE PÁGINA */
 @keyframes page-load-animation {
     from {
         opacity: 0;
