@@ -2,7 +2,7 @@
 
 const navLinks = [
     { href: "index.html", text: "Início" },
-    { href: "sobre.html", text: "Sobre & História" },
+    { href: "sobre.html", text: "Sobre<br>& História" }, // Força a quebra de linha no desktop
     { href: "eventos.html", text: "Eventos" },
     { href: "contato.html", text: "Apoiadores & Contato" },
 ];
@@ -13,8 +13,11 @@ function createHeader(activePage) {
 
     navLinks.forEach(link => {
         const isActive = link.href === activePage;
+        // Para o menu mobile, removemos a quebra de linha para um visual mais limpo
+        const mobileText = link.text.replace('<br>', ' '); 
+
         desktopNavHTML += `<a href="${link.href}" class="nav-link ${isActive ? 'active' : ''}">${link.text}</a>`;
-        mobileNavHTML += `<a href="${link.href}" class="text-xl ${isActive ? 'text-[#FFD500]' : 'hover:text-[#FFD500] transition-colors'}">${link.text}</a>`;
+        mobileNavHTML += `<a href="${link.href}" class="text-xl ${isActive ? 'text-[#FFD500]' : 'hover:text-[#FFD500] transition-colors'}">${mobileText}</a>`;
     });
 
     const headerHTML = `
@@ -24,7 +27,7 @@ function createHeader(activePage) {
                 <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
                 <span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8">${desktopNavHTML}</nav>
+            <nav class="hidden md:flex items-start space-x-8">${desktopNavHTML}</nav>
             <button id="menu-toggle-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </header>
@@ -35,7 +38,6 @@ function createHeader(activePage) {
     
     document.getElementById('header-placeholder').innerHTML = headerHTML;
 
-    // Adiciona o evento de clique após o header ser inserido no DOM
     document.getElementById('menu-toggle-btn').addEventListener('click', () => {
         document.getElementById('mobile-menu').classList.toggle('hidden');
     });
