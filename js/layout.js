@@ -2,9 +2,9 @@
 
 const navLinks = [
     { href: "index.html", text: "Início" },
-    { href: "sobre.html", text: "Sobre<br>& História" },
+    { href: "sobre.html", text: "Sobre<br>& História" }, // Mantém a quebra de linha
     { href: "eventos.html", text: "Eventos" },
-    { href: "contato.html", text: "Apoiadores & Contato" },
+    { href: "contato.html", text: "Apoiadores<br>& Contato" }, // ADICIONADA a quebra de linha aqui para simetria
 ];
 
 function createHeader(activePage) {
@@ -13,6 +13,7 @@ function createHeader(activePage) {
 
     navLinks.forEach(link => {
         const isActive = link.href === activePage;
+        // Para o menu mobile, removemos a quebra de linha para um visual mais limpo
         const mobileText = link.text.replace('<br>', ' '); 
 
         desktopNavHTML += `<a href="${link.href}" class="nav-link ${isActive ? 'active' : ''}">${link.text}</a>`;
@@ -26,7 +27,6 @@ function createHeader(activePage) {
                 <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
                 <span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span>
             </a>
-            <!-- MUDANÇA AQUI: Voltando para items-center, pois a correção está no CSS do .nav-link -->
             <nav class="hidden md:flex items-center space-x-8">${desktopNavHTML}</nav>
             <button id="menu-toggle-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
