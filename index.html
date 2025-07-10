@@ -11,13 +11,9 @@
 </head>
 <body class="bg-[#081525] text-gray-100 font-sans">
 
-    <!-- Cabeçalho com Logo e Navegação -->
     <header class="bg-[#081525]/80 py-4 border-b border-[#005BBB]/30 sticky top-0 z-50 backdrop-blur-sm">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
-                <span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span>
-            </a>
+            <a href="index.html" class="flex items-center gap-3"><img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10"><span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span></a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="nav-link active">Início</a>
                 <a href="sobre.html" class="nav-link">Sobre & História</a>
@@ -37,7 +33,8 @@
         </nav>
     </div>
 
-    <main>
+    <!-- Classe adicionada para animação de página -->
+    <main class="page-content-wrapper">
         <section id="home" style="background: linear-gradient(rgba(8, 21, 37, 0.85), rgba(8, 21, 37, 0.9)), url('https://images.unsplash.com/photo-1596708723681-12235c43714b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center; background-size: cover;">
             <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
                 <img src="https://i.imgur.com/UHfW6h7.png" alt="Logo Comemorativo 25 Anos Tchóven" class="h-32 w-32 md:h-48 md:w-48 mb-6 animate-on-load"/>
@@ -67,19 +64,11 @@
     </main>
 
     <footer class="bg-[#0d1a2b] py-12 border-t border-[#005BBB]/20">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm">© 2025 Grupo Folclórico Ucraniano Tchóven. Todos os direitos reservados.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="https://www.facebook.com/p/Grupo-Folcl%C3%B3rico-Ucraniano-Tch%C3%B3ven-100063499751781/?_rdr" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition"><i class="fab fa-facebook-f text-lg"></i></a>
-                <a href="https://www.instagram.com/folcloretchoven" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition"><i class="fab fa-instagram text-lg"></i></a>
-            </div>
-        </div>
+        <div class="container mx-auto px-4 text-center"><p class="text-gray-500 text-sm">© 2025 Grupo Folclórico Ucraniano Tchóven. Todos os direitos reservados.</p><div class="flex justify-center space-x-6 mt-4"><a href="https://www.facebook.com/p/Grupo-Folcl%C3%B3rico-Ucraniano-Tch%C3%B3ven-100063499751781/?_rdr" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition"><i class="fab fa-facebook-f text-lg"></i></a><a href="https://www.instagram.com/folcloretchoven" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition"><i class="fab fa-instagram text-lg"></i></a></div></div>
     </footer>
     
     <script>
-        document.getElementById('menu-toggle-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        document.getElementById('menu-toggle-btn').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
     </script>
 </body>
 </html>
