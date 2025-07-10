@@ -16,9 +16,9 @@ body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
 /* ESTILO DO MENU DE NAVEGAÇÃO - CORREÇÃO DEFINITIVA */
 /* ================================================= */
 .nav-link {
-    display: inline-flex;      /* Chave 1: Faz o link se comportar como um bloco flex */
-    align-items: center;        /* Chave 2: Centraliza o conteúdo (texto) verticalmente dentro do link */
-    justify-content: center;    /* Centraliza o texto horizontalmente */
+    display: flex; /* Chave 1: Transforma o link em um contêiner flex */
+    align-items: center; /* Chave 2: Alinha o texto verticalmente DENTRO do link */
+    justify-content: center;
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s ease;
@@ -44,7 +44,6 @@ body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
 .nav-link.active {
     font-weight: 600;
 }
-
 
 /* LÓGICA DO MODAL DE EVENTOS */
 label[for="modal-toggle"] { cursor: pointer; }
