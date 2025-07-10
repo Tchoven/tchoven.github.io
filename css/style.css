@@ -1,7 +1,12 @@
-/* Importação do Tailwind via CDN (alternativa ao build) - Coloque no HTML */
-/* O CSS abaixo complementa o Tailwind */
-
 /* ESTILOS GERAIS E ANIMAÇÕES */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #081525;
+    color: #f7fafc; /* text-gray-100 */
+    font-family: sans-serif;
+}
 .ukrainian-gradient-text { 
     background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); 
     background-size: 200% auto; 
@@ -30,6 +35,7 @@
 .nav-link {
     position: relative;
     padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 .nav-link::after {
     content: '';
