@@ -54,10 +54,12 @@
 
     <div id="footer-placeholder"></div>
 
+    <script src="js/layout.js"></script>
     <script>
-        const loadComponent = (selector, url, callback) => { fetch(url).then(response => response.ok ? response.text() : Promise.reject('File not found')).then(data => { document.querySelector(selector).innerHTML = data; if (callback) callback(); }).catch(error => console.error(`Error loading ${url}:`, error)); };
-        const setupHeader = () => { const menuBtn = document.getElementById('menu-toggle-btn'); if (menuBtn) { menuBtn.addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); }); } const navLinks = [{ href: "index.html", text: "Início" }, { href: "sobre.html", text: "Sobre & História" }, { href: "eventos.html", text: "Eventos" }, { href: "contato.html", text: "Apoiadores & Contato" }, ]; const currentPage = window.location.pathname.split('/').pop() || 'index.html'; const desktopMenu = document.getElementById('nav-menu-desktop'); const mobileMenuNav = document.getElementById('nav-menu-mobile'); if(desktopMenu) desktopMenu.innerHTML = ''; if(mobileMenuNav) mobileMenuNav.innerHTML = ''; navLinks.forEach(link => { const isActive = link.href === currentPage; if(desktopMenu) desktopMenu.innerHTML += `<a href="${link.href}" class="nav-link ${isActive ? 'active' : ''}">${link.text}</a>`; if(mobileMenuNav) mobileMenuNav.innerHTML += `<a href="${link.href}" class="text-xl ${isActive ? 'text-[#FFD500]' : 'hover:text-[#FFD500] transition-colors'}">${link.text}</a>`; }); };
-        document.addEventListener("DOMContentLoaded", () => { loadComponent('#header-placeholder', '_includes/header.html', setupHeader); loadComponent('#footer-placeholder', '_includes/footer.html'); });
+        document.addEventListener("DOMContentLoaded", () => {
+            createHeader("eventos.html");
+            createFooter();
+        });
     </script>
 </body>
 </html>
