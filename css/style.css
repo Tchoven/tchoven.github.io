@@ -12,21 +12,24 @@ body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
 @keyframes flow-down { from { background-position: 0 0; } to { background-position: 0 100%; } } 
 #timeline-line { background-size: 100% 200%; animation: flow-down 8s linear infinite; }
 
-/* ESTILO DO MENU DE NAVEGAÇÃO - ATUALIZADO */
+/* ================================================= */
+/* ESTILO DO MENU DE NAVEGAÇÃO - CORREÇÃO DEFINITIVA */
+/* ================================================= */
 .nav-link {
-    display: inline-block; /* Faz o link ter o tamanho do seu conteúdo */
+    display: inline-flex;      /* Chave 1: Faz o link se comportar como um bloco flex */
+    align-items: center;        /* Chave 2: Centraliza o conteúdo (texto) verticalmente dentro do link */
+    justify-content: center;    /* Centraliza o texto horizontalmente */
     position: relative;
-    padding-bottom: 5px; /* Aumenta o espaço para o sublinhado não colar no texto */
+    padding-bottom: 5px;
     transition: color 0.3s ease;
     text-align: center;
-    line-height: 1.25; /* Melhora o espaçamento do texto de duas linhas */
+    line-height: 1.3;
 }
 .nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%; /* Começa no meio */
-    transform: translateX(-50%); /* Centraliza o sublinhado */
+    left: 0;
     width: 0;
     height: 2px;
     background-color: #FFD500;
@@ -36,11 +39,12 @@ body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
     color: #FFD500;
 }
 .nav-link:hover::after, .nav-link.active::after {
-    width: 100%; /* Expande para os dois lados */
+    width: 100%;
 }
 .nav-link.active {
     font-weight: 600;
 }
+
 
 /* LÓGICA DO MODAL DE EVENTOS */
 label[for="modal-toggle"] { cursor: pointer; }

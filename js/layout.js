@@ -4,7 +4,7 @@ const navLinks = [
     { href: "index.html", text: "Início" },
     { href: "sobre.html", text: "Sobre<br>& História" },
     { href: "eventos.html", text: "Eventos" },
-    { href: "contato.html", text: "Apoiadores<br>& Contato" }, // Adicionei quebra aqui também para consistência
+    { href: "contato.html", text: "Apoiadores & Contato" },
 ];
 
 function createHeader(activePage) {
@@ -26,8 +26,8 @@ function createHeader(activePage) {
                 <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
                 <span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span>
             </a>
-            <!-- MUDANÇA AQUI: Usando grid para alinhamento perfeito -->
-            <nav class="hidden md:grid grid-flow-col gap-x-8 items-center">${desktopNavHTML}</nav>
+            <!-- MUDANÇA AQUI: Voltando para items-center, pois a correção está no CSS do .nav-link -->
+            <nav class="hidden md:flex items-center space-x-8">${desktopNavHTML}</nav>
             <button id="menu-toggle-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </header>
