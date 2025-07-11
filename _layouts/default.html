@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título dinâmico: Título da Página | Título do Site -->
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link para o CSS com a tag do Jekyll -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    <link rel="icon" href="https://i.imgur.com/UHfW6h7.png">
+</head>
+<body class="font-sans">
+
+    <!-- Inclui o Cabeçalho -->
+    {% include header.html %}
+
+    <!-- O conteúdo de cada página será inserido aqui -->
+    <main class="page-content-wrapper">
+        {{ content }}
+    </main>
+
+    <!-- Inclui o Rodapé -->
+    {% include footer.html %}
+    
+    <!-- Script para o menu mobile, necessário em todas as páginas -->
+    <script>
+        const menuBtn = document.getElementById('menu-toggle-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(menuBtn && mobileMenu){
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<header class="bg-[#081525]/80 py-4 border-b border-[#005BBB]/30 sticky top-0 z-50 backdrop-blur-sm">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <a href="{{ '/' | relative_url }}" class="flex items-center gap-3">
+            <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
+            <span class="text-lg font-bold hidden md:inline-block">{{ site.title }}</span>
+        </a>
+        
+        <!-- Menu Desktop gerado pelo Jekyll -->
+        <nav class="hidden md:grid grid-flow-col auto-cols-max gap-x-8 items-center">
+            {% for item in site.navigation %}
+                <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                    {{ item.title | replace: '&', '<br>&' }}
+                </a>
+            {% endfor %}
+        </nav>
+
+        <button id="menu-toggle-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<div id="mobile-menu" class="hidden md:hidden fixed top-20 left-0 w-full bg-[#0d1a2b]/95 backdrop-blur-sm z-40">
+    <nav class="flex flex-col items-center space-y-6 py-8">
+        {% for item in site.navigation %}
+            <a href="{{ item.url | relative_url }}" class="text-xl {% if page.url == item.url %}text-[#FFD500]{% else %}hover:text-[#FFD500] transition-colors{% endif %}">
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </nav>
+</div>
