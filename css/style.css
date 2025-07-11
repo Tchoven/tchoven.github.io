@@ -1,36 +1,62 @@
-/* ========================================================= */
-/*       ESTRUTURA DE LAYOUT COM FUNDO (VERSÃO FINAL)        */
-/* ========================================================= */
+/* ESTILOS GERAIS E ANIMAÇÕES */
 html {
     scroll-behavior: smooth;
-    /* Camada 1: Fita Esquerda | Camada 2: Fita Direita */
-    background-image: 
-        url('https://i.imgur.com/8864eyU.png'), 
-        url('https://i.imgur.com/8864eyU.png');
-    background-repeat: repeat-y, repeat-y;
-    background-position: left top, right top;
-    background-size: 40px, 40px;
-    background-attachment: scroll;
+    background-color: #081525; /* Cor de fundo principal movida para o html */
 }
 
 body {
-    background-color: #081525;
     color: #f7fafc;
     font-family: sans-serif;
-    max-width: 1280px; /* Define a largura máxima do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo */
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    background-color: transparent; /* Body fica transparente para o fundo do html aparecer */
 }
 
-/* ESTILOS PADRÃO */
-.ukrainian-gradient-text { 
-    background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); 
-    background-size: 200% auto; 
-    background-clip: text; 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    animation: ukrainian-gradient-flow 10s linear infinite; 
+/* ========================================================= */
+/*       FITAS LATERAIS FIXAS (VERSÃO FINAL E CORRETA)       */
+/* ========================================================= */
+.vyshyvanka-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 40px; /* Largura da fita */
+    background-image: url('https://i.imgur.com/8864eyU.png');
+    background-repeat: repeat-y;
+    background-size: contain;
+    z-index: 10;
+    display: none; /* Escondido por padrão */
 }
+.vyshyvanka-left {
+    left: 0;
+}
+.vyshyvanka-right {
+    right: 0;
+}
+
+/* Wrapper que segura todo o conteúdo */
+.site-wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #081525;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 20; /* Conteúdo fica na frente das fitas */
+}
+
+/* Mostra as fitas e adiciona espaçamento no body */
+@media (min-width: 1440px) {
+    .vyshyvanka-sidebar {
+        display: block;
+    }
+    body {
+        /* Cria um "corredor" para o conteúdo, empurrando-o para longe das fitas */
+        padding-left: 60px; /* Largura da fita + 20px de espaço */
+        padding-right: 60px;
+    }
+}
+
+
+/* ESTILOS PADRÃO */
+.ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
 .text-justify { text-align: justify; } 
