@@ -1,23 +1,65 @@
 /* ESTILOS GERAIS E ANIMAÇÕES */
-html { scroll-behavior: smooth; }
-body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
-.ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #081525;
+    color: #f7fafc; /* text-gray-100 */
+    font-family: sans-serif;
+}
+
+/* ========================================================= */
+/*       FITAS DE BORDADO LATERAIS (VERSÃO CORRETA)          */
+/* ========================================================= */
+.vyshyvanka-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 60px; /* Largura da fita */
+    background-image: url('https://i.imgur.com/8864eyU.png');
+    background-repeat: repeat-y;
+    background-size: contain;
+    z-index: 10; /* Z-index para ficar acima do fundo, mas abaixo do header */
+    display: none; /* Escondido por padrão */
+}
+.vyshyvanka-left {
+    left: 0;
+}
+.vyshyvanka-right {
+    right: 0;
+}
+/* Mostra as fitas apenas em telas bem largas para não atrapalhar o conteúdo */
+@media (min-width: 1536px) {
+    .vyshyvanka-sidebar {
+        display: block;
+    }
+}
+
+/* ESTILOS PADRÃO */
+.ukrainian-gradient-text { 
+    background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); 
+    background-size: 200% auto; 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: ukrainian-gradient-flow 10s linear infinite; 
+}
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
 .text-justify { text-align: justify; } 
 .card-bg { background-color: #1a2c46; }
 .animate-on-load { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animation-delay-200ms { animation-delay: 0.2s; } .animation-delay-400ms { animation-delay: 0.4s; } .animation-delay-600ms { animation-delay: 0.6s; }
+.animation-delay-200ms { animation-delay: 0.2s; } 
+.animation-delay-400ms { animation-delay: 0.4s; } 
+.animation-delay-600ms { animation-delay: 0.6s; }
 @keyframes flow-down { from { background-position: 0 0; } to { background-position: 0 100%; } } 
 #timeline-line { background-size: 100% 200%; animation: flow-down 8s linear infinite; }
 
-/* ================================================= */
-/* ESTILO DO MENU DE NAVEGAÇÃO - CORREÇÃO DEFINITIVA */
-/* ================================================= */
+/* ESTILO DO MENU DE NAVEGAÇÃO */
 .nav-link {
-    display: flex; /* Chave 1: Transforma o link em um contêiner flex */
-    align-items: center; /* Chave 2: Alinha o texto verticalmente DENTRO do link */
+    display: flex;
+    align-items: center;
     justify-content: center;
     position: relative;
     padding-bottom: 5px;

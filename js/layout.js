@@ -26,7 +26,6 @@ function createHeader(activePage) {
                 <img src="https://i.imgur.com/UHfW6h7.png" alt="Tchóven Logo" class="h-10 w-10">
                 <span class="text-lg font-bold hidden md:inline-block">Grupo Folclórico Ucraniano Tchóven</span>
             </a>
-            <!-- Usando 'grid' com 'items-center' para o alinhamento perfeito dos blocos de link -->
             <nav class="hidden md:grid grid-flow-col auto-cols-max gap-x-8 items-center">${desktopNavHTML}</nav>
             <button id="menu-toggle-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
