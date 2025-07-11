@@ -11,10 +11,10 @@
 </head>
 <body class="font-sans">
 
+    <div class="vyshyvanka-sidebar vyshyvanka-left"></div>
+
     <div class="site-wrapper">
-
         <div id="header-placeholder"></div>
-
         <main class="page-content-wrapper">
             <section id="about" class="py-20">
                 <div class="container mx-auto px-4">
@@ -39,15 +39,17 @@
                 </div></div></div>
             </section>
         </main>
-
         <div id="footer-placeholder"></div>
-        
-        <script src="js/layout.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                createHeader("sobre.html");
-                createFooter();
-            });
-        </script>
-    </body>
+    </div>
+
+    <div class="vyshyvanka-sidebar vyshyvanka-right"></div>
+    
+    <script src="js/layout.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            createHeader("sobre.html");
+            createFooter();
+        });
+    </script>
+</body>
 </html>
