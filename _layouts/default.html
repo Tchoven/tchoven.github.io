@@ -11,21 +11,13 @@
 </head>
 <body class="font-sans">
 
-    <div class="vyshyvanka-sidebar vyshyvanka-left"></div>
-    <div class="vyshyvanka-sidebar vyshyvanka-right"></div>
-    
-    <div class="site-wrapper">
-        <!-- Inclui o Cabeçalho -->
-        {% include header.html %}
+    {% include header.html %}
 
-        <!-- O conteúdo de cada página será inserido aqui -->
-        <main class="page-content-wrapper">
-            {{ content }}
-        </main>
+    <main class="page-content-wrapper">
+        {{ content }}
+    </main>
 
-        <!-- Inclui o Rodapé -->
-        {% include footer.html %}
-    </div>
+    {% include footer.html %}
     
     <script>
         const menuBtn = document.getElementById('menu-toggle-btn');
