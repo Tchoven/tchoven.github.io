@@ -16,45 +16,48 @@ body {
 .vyshyvanka-sidebar {
     background-image: url('https://i.imgur.com/8864eyU.png');
     background-repeat: repeat-y;
-    background-position: center top;
-    background-size: 40px; /* Tamanho da fita */
-    display: none; /* Escondido por padrão em telas pequenas */
+    background-size: 40px; /* Largura da imagem do bordado */
+    display: none;
 }
+.vyshyvanka-left {
+    background-position: right center; /* Alinha o bordado na borda interna da coluna */
+}
+.vyshyvanka-right {
+    background-position: left center; /* Alinha o bordado na borda interna da coluna */
+}
+
 
 /* Aplica o layout de 3 colunas apenas em telas largas */
 @media (min-width: 1440px) {
     body {
         display: grid;
-        /* Colunas: [auto-ajuste] [conteúdo principal] [auto-ajuste] */
-        /* 1fr faz as laterais ocuparem o espaço restante igualmente */
-        grid-template-columns: 1fr auto 1fr;
+        /* Colunas: [largura-fita+espaço] [conteúdo] [largura-fita+espaço] */
+        /* Isso nos dá controle preciso sobre o espaçamento */
+        grid-template-columns: 80px 1fr 80px;
     }
 
     .vyshyvanka-sidebar {
         display: block;
-        /* Alinha a imagem do bordado para o lado correto dentro de sua coluna */
     }
     .vyshyvanka-left {
-        background-position: right top; /* Alinha o bordado à direita da coluna esquerda */
         grid-column: 1;
-        grid-row: 1; /* Garante que ocupe a mesma linha do wrapper */
+        grid-row: 1;
     }
     .vyshyvanka-right {
-        background-position: left top; /* Alinha o bordado à esquerda da coluna direita */
         grid-column: 3;
-        grid-row: 1; /* Garante que ocupe a mesma linha do wrapper */
+        grid-row: 1;
     }
     
     .site-wrapper {
         grid-column: 2;
-        width: 1280px; /* Largura fixa para o conteúdo principal */
-        margin: 0 2rem; /* Cria o espaçamento de 2rem entre o conteúdo e as fitas */
     }
 }
 
 .site-wrapper {
     background-color: #081525;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    /* Em telas menores que 1440px, garantimos que o conteúdo ocupe a tela toda */
+    width: 100%; 
 }
 
 /* ESTILOS PADRÃO (O restante permanece o mesmo) */
