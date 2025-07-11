@@ -1,29 +1,16 @@
 /* ESTILOS GERAIS E ANIMAÇÕES */
-html {
-    scroll-behavior: smooth;
-}
-body {
-    background-color: #081525;
-    color: #f7fafc;
-    font-family: sans-serif;
-}
-.vyshyvanka-sidebar {
-    position: fixed; top: 0; bottom: 0; width: 40px; 
-    background-image: url('https://i.imgur.com/8864eyU.png');
-    background-repeat: repeat-y; background-size: contain; z-index: 10;
-    display: none;
-}
+html { scroll-behavior: smooth; }
+body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
+.site-wrapper { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; background-color: #081525; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); position: relative; z-index: 20; }
+.vyshyvanka-sidebar { position: fixed; top: 0; bottom: 0; width: 40px; background-image: url('https://i.imgur.com/8864eyU.png'); background-repeat: repeat-y; background-size: contain; z-index: 10; display: none; }
 .vyshyvanka-left { left: 0; }
 .vyshyvanka-right { right: 0; }
-.site-wrapper {
-    width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto;
-    background-color: #081525; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    position: relative; z-index: 20; 
-}
 @media (min-width: 1660px) {
     .vyshyvanka-sidebar { display: block; }
-    body { padding-left: 40px; padding-right: 40px; }
+    body { padding-left: 30px; padding-right: 30px; }
 }
+
+/* ESTILOS PADRÃO */
 .ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
@@ -41,12 +28,30 @@ body {
 .nav-link:hover, .nav-link.active { color: #FFD500; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 .nav-link.active { font-weight: 600; }
+
+/* LÓGICA DO MODAL DE EVENTOS - Z-INDEX CORRIGIDO */
 label[for="modal-toggle"] { cursor: pointer; }
-.modal-container { opacity: 0; visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(8, 21, 37, 0.9); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(8px); }
+.modal-container { 
+    opacity: 0; 
+    visibility: hidden; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(8, 21, 37, 0.9); 
+    z-index: 60; /* Valor maior que o z-index do header (50) */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+    backdrop-filter: blur(8px); 
+}
 #modal-toggle { display: none; }
 #modal-toggle:checked + .modal-container { opacity: 1; visibility: visible; }
 body:has(#modal-toggle:checked) { overflow: hidden; }
 .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
+
+/* ANIMAÇÃO DE TRANSIÇÃO DE PÁGINA */
 @keyframes page-load-animation { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 .page-content-wrapper { animation: page-load-animation 0.6s ease-out forwards; }
