@@ -1,54 +1,29 @@
 /* ESTILOS GERAIS E ANIMAÇÕES */
 html {
     scroll-behavior: smooth;
-    background-color: #081525;
 }
 body {
+    background-color: #081525;
     color: #f7fafc;
     font-family: sans-serif;
-    background-color: transparent; 
 }
-
-/* ========================================================= */
-/*       FITAS LATERAIS FIXAS (VERSÃO FINAL E CORRETA)       */
-/* ========================================================= */
 .vyshyvanka-sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 40px; 
+    position: fixed; top: 0; bottom: 0; width: 40px; 
     background-image: url('https://i.imgur.com/8864eyU.png');
-    background-repeat: repeat-y;
-    background-size: contain;
-    z-index: 10;
+    background-repeat: repeat-y; background-size: contain; z-index: 10;
     display: none;
 }
 .vyshyvanka-left { left: 0; }
 .vyshyvanka-right { right: 0; }
-
 .site-wrapper {
-    width: 100%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #081525;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 20; 
+    width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto;
+    background-color: #081525; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative; z-index: 20; 
 }
-
 @media (min-width: 1440px) {
-    .vyshyvanka-sidebar {
-        display: block;
-    }
-    body {
-        padding-left: 60px; /* Largura da fita + 20px de espaço */
-        padding-right: 60px;
-    }
+    .vyshyvanka-sidebar { display: block; }
+    body { padding-left: 40px; padding-right: 40px; }
 }
-
-
-/* ESTILOS PADRÃO */
 .ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
