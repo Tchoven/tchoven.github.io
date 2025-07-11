@@ -1,7 +1,6 @@
 title: Grupo Folclórico Ucraniano Tchóven
 description: "Celebre conosco os 25 anos de cultura e dança ucraniana em São José dos Pinhais."
 
-# Estrutura de Navegação
 navigation:
   - title: Início
     url: /
@@ -12,7 +11,6 @@ navigation:
   - title: Apoiadores & Contato
     url: /contato.html
 
-# Exclui arquivos que o Jekyll não precisa processar
 exclude:
   - Gemfile
   - Gemfile.lock
