@@ -1,10 +1,10 @@
 // js/layout.js
 
 const navLinks = [
-    { href: "inicio/index.html", text: "Início" },
-    { href: "sobre-e-historia/index.html", text: "Sobre<br>& História" },
-    { href: "eventos/index.html", text: "Eventos" },
-    { href: "apoiadores-e-contato/index.html", text: "Apoiadores<br>& Contato" },
+    { href: "index.html", text: "Início" },
+    { href: "sobre.html", text: "Sobre<br>& História" },
+    { href: "eventos.html", text: "Eventos" },
+    { href: "contato.html", text: "Apoiadores<br>& Contato" },
 ];
 
 function createHeader(activePage) {
