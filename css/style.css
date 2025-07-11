@@ -20,7 +20,7 @@ body {
     background-color: #081525; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     position: relative; z-index: 20; 
 }
-@media (min-width: 1440px) {
+@media (min-width: 1660px) {
     .vyshyvanka-sidebar { display: block; }
     body { padding-left: 40px; padding-right: 40px; }
 }
