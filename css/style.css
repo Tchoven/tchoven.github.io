@@ -1,14 +1,10 @@
+/* Importa a fonte manuscrita do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 /* ESTILOS GERAIS E ANIMAÇÕES */
 html { scroll-behavior: smooth; }
-body { background-color: #081525; color: #f7fafc; font-family: sans-serif; margin: 0; }
-.site-wrapper { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; background-color: #081525; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); position: relative; z-index: 20; }
-.vyshyvanka-sidebar { position: fixed; top: 0; bottom: 0; width: 40px; background-image: url('https://i.imgur.com/8864eyU.png'); background-repeat: repeat-y; background-size: contain; z-index: 10; display: none; }
-.vyshyvanka-left { left: 0; }
-.vyshyvanka-right { right: 0; }
-@media (min-width: 1440px) {
-    .vyshyvanka-sidebar { display: block; }
-    body { padding-left: 60px; padding-right: 60px; }
-}
+body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
+.site-wrapper { background-color: #081525; max-width: 1280px; margin: 0 auto; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
 .ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
@@ -36,4 +32,8 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 @keyframes page-load-animation { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 .page-content-wrapper { animation: page-load-animation 0.6s ease-out forwards; }
 
-/* A classe .evento-card-bg foi REMOVIDA */
+/* NOVA CLASSE PARA FONTE MANUSCRITA */
+.font-handwritten {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700; /* Garante que a fonte seja negrito */
+}
