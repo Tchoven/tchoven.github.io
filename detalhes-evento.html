@@ -4,71 +4,35 @@ title: Detalhes do Evento de 25 Anos
 ---
 <section class="py-12 md:py-20 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
     <div class="container mx-auto px-4">
-
-        <!-- Topo da página baseado no panfleto -->
         <div class="text-center">
             <div class="flex justify-around items-center max-w-2xl mx-auto mb-8">
                 <span class="text-2xl md:text-3xl font-light">2000</span>
-                <img src="https://i.imgur.com/UHfW6h7.png" alt="Logo 25 Anos Tchóven" class="h-32 w-32 md:h-40 md:w-40">
+                <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo 25 Anos Tchóven" class="h-32 w-32 md:h-40 md:w-40">
                 <span class="text-2xl md:text-3xl font-light">2025</span>
             </div>
-            
             <div class="relative max-w-lg mx-auto mb-10">
                 <h1 class="text-4xl md:text-5xl font-bold">02 de agosto 2025</h1>
                 <p class="text-lg text-gray-300">São José dos Pinhais - PR</p>
+                <img src="{{ '/assets/img/bandeira-onda.png' | relative_url }}" alt="Bandeira Ucraniana" class="absolute -bottom-6 left-0 w-24 md:w-32 hidden md:block">
+                <img src="{{ '/assets/img/bandeira-onda.png' | relative_url }}" alt="Bandeira Ucraniana" class="absolute -bottom-6 right-0 w-24 md:w-32 transform scale-x-[-1] hidden md:block">
             </div>
         </div>
-
-        <!-- Seção de Atrações (layout do antigo modal) -->
         <div class="max-w-3xl mx-auto mt-16 bg-[#0d1a2b] p-6 md:p-8 rounded-2xl border border-[#005BBB]/30 custom-shadow">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold mb-2">Conheça os Detalhes da <span class="ukrainian-gradient-text">Celebração</span></h2>
                 <p class="text-lg text-gray-300">Preparamos uma noite inesquecível para você.</p>
             </div>
-            
             <div class="space-y-8">
-                <!-- 17:00 - Divina Liturgia -->
-                <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                    <img src="https://i.imgur.com/BIozP8v.png" alt="Igreja" class="w-full md:w-1/3 h-40 object-cover rounded-lg">
-                    <div class="flex-grow">
-                        <h3 class="text-xl font-bold mb-2 text-[#FFD500]">17:00 - Divina Liturgia Solene</h3>
-                        <p class="text-gray-300 text-justify">Iniciaremos nossa celebração com um momento de fé e gratidão. Uma Divina Liturgia em Ação de Graças pelos 25 anos do grupo na Paróquia N. S. do Perpétuo Socorro.</p>
-                    </div>
-                </div>
-
-                <!-- 19:00 - Atrações -->
                 <div class="pt-8 border-t border-gray-700/50">
-                     <div class="text-center mb-8">
-                         <h3 class="text-2xl font-bold">Atrações a partir das 19:00</h3>
-                     </div>
                      <div class="space-y-8">
-                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                            <img src="https://i.imgur.com/jzhIaKh.png" alt="Dançarinos" class="w-full md:w-1/3 h-40 object-cover rounded-lg">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2 text-[#FFD500]">Apresentação do Grupo Tchóven</h3>
-                                <p class="text-gray-300 text-justify">O coração da nossa celebração! Nossos dançarinos apresentarão coreografias que contam a história e a alegria do povo ucraniano, em uma performance cheia de energia e paixão.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                            <img src="https://i.imgur.com/mQa9Ka2.jpg" alt="Buffet" class="w-full md:w-1/3 h-40 object-cover rounded-lg">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2 text-[#FFD500]">Jantar Festivo</h3>
-                                <p class="text-gray-300 text-justify">Após as apresentações, um delicioso jantar será servido em formato de buffet. Com uma variedade de opções para agradar a todos, será o momento perfeito para confraternizar.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                            <img src="https://i.imgur.com/vbxmqaW.jpg" alt="Músico" class="w-full md:w-1/3 h-40 object-cover rounded-lg">
-                            <div>
-                                <h3 class="text-xl font-bold mb-2 text-[#FFD500]">Animação com Celso Taborda</h3>
-                                <p class="text-gray-300 text-justify">Após o jantar, a festa continua! O talentoso Celso Taborda irá animar a noite com um repertório vibrante, garantindo que ninguém fique parado. Prepare-se para dançar!</p>
-                            </div>
-                        </div>
+                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-liturgia.png' | relative_url }}" alt="Igreja" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">17:00 - Divina Liturgia Solene</h3><p class="text-gray-300 text-justify">Iniciaremos nossa celebração com um momento de fé e gratidão. Uma Divina Liturgia em Ação de Graças pelos 25 anos do grupo na Paróquia N. S. do Perpétuo Socorro.</p></div></div>
+                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/grupo-tchoven.png' | relative_url }}" alt="Dançarinos" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Apresentação do Grupo Tchóven</h3><p class="text-gray-300 text-justify">O coração da nossa celebração! Nossos dançarinos apresentarão coreografias que contam a história e a alegria do povo ucraniano, em uma performance cheia de energia e paixão.</p></div></div>
+                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-jantar.jpg' | relative_url }}" alt="Buffet" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Jantar Festivo</h3><p class="text-gray-300 text-justify">Após as apresentações, um delicioso jantar será servido em formato de buffet. Com uma variedade de opções para agradar a todos, será o momento perfeito para confraternizar.</p></div></div>
+                        <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-musica.jpg' | relative_url }}" alt="Músico" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Animação com Celso Taborda</h3><p class="text-gray-300 text-justify">Após o jantar, a festa continua! O talentoso Celso Taborda irá animar a noite com um repertório vibrante, garantindo que ninguém fique parado. Prepare-se para dançar!</p></div></div>
                      </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Botão de Voltar -->
         <div class="text-center mt-16">
             <a href="{{ '/eventos.html' | relative_url }}" class="inline-flex items-center gap-2 px-6 py-2 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition">
                 <i class="fas fa-arrow-left"></i>
