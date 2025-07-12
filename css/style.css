@@ -38,8 +38,9 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 @keyframes page-load-animation { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 .page-content-wrapper { animation: page-load-animation 0.6s ease-out forwards; }
 
-/* CLASSE PARA O FUNDO DO CARD DO EVENTO */
+/* CLASSE PARA O FUNDO DO CARD DO EVENTO (CAMINHO CORRIGIDO) */
 .evento-card-bg {
+    /* Usando caminho absoluto a partir da raiz do site (/) */
     background-image: url('/assets/img/evento-card-bg.png'); 
     background-position: center center;
     background-size: cover;
