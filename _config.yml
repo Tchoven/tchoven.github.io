@@ -11,6 +11,8 @@ navigation:
     url: /eventos/
   - title: Apresentações
     url: /apresentacoes/
+  - title: Galeria
+    url: /galeria/
   - title: Apoiadores & Contato
     url: /apoiadores-e-contato/
 
