@@ -2,31 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 /* ESTILOS GERAIS E ANIMAÇÕES */
-html {
-    scroll-behavior: smooth;
-}
-body {
-    background-color: #081525;
-    color: #f7fafc;
-    font-family: sans-serif;
-}
-.site-wrapper {
-    background-color: #081525;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    max-width: 1280px;
-    margin: 0 auto;
-}
-.page-content-wrapper { 
-    animation: page-load-animation 0.6s ease-out forwards; 
-}
-@keyframes page-load-animation { 
-    from { opacity: 0; transform: translateY(15px); } 
-    to { opacity: 1; transform: translateY(0); } 
-}
-.font-handwritten {
-    font-family: 'Dancing Script', cursive !important;
-    font-weight: 700;
-}
+html { scroll-behavior: smooth; }
+body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
+.site-wrapper { background-color: #081525; max-width: 1280px; margin: 0 auto; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+.font-handwritten { font-family: 'Dancing Script', cursive !important; font-weight: 700; }
 .ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
@@ -47,9 +26,7 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
 
-/* ========================================================= */
-/*      ANIMAÇÃO DE CARREGAMENTO "CORTINAS" (SEM LOGO)       */
-/* ========================================================= */
+/* ANIMAÇÃO DE CARREGAMENTO "CORTINAS" */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -60,35 +37,28 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
     display: flex;
     flex-direction: column;
     pointer-events: none;
-    /* Começa a sumir após a abertura das cortinas para remover completamente o elemento */
-    animation: fadeOutScreen 0.5s 1.5s forwards; 
+    animation: fadeOutScreen 0.5s 1.5s forwards;
     opacity: 1;
 }
-
 .curtain {
     flex: 1;
     transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
 }
-
 .curtain.blue {
     background-color: #005BBB;
 }
-
 .curtain.yellow {
     background-color: #FFD500;
 }
-
-/* Animação para o corpo da página após o carregamento */
 body.loaded #loading-screen .curtain.blue {
     transform: translateX(-100%);
 }
 body.loaded #loading-screen .curtain.yellow {
     transform: translateX(100%);
 }
-
 @keyframes fadeOutScreen {
     to {
         opacity: 0;
-        visibility: hidden; /* Garante que o elemento suma completamente */
+        visibility: hidden;
     }
 }
