@@ -26,39 +26,33 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
 
-/* ANIMAÇÃO DE CARREGAMENTO "CORTINAS" */
-#loading-screen {
+/* ========================================================= */
+/*      NOVA ANIMAÇÃO DE CARREGAMENTO "MOSAICO"              */
+/* ========================================================= */
+#loading-grid {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 9999;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     pointer-events: none;
-    animation: fadeOutScreen 0.5s 1.5s forwards;
+    transition: opacity 0.5s 1.5s ease; /* Some suavemente após a animação dos quadrados */
+}
+
+body.loaded #loading-grid {
+    opacity: 0;
+}
+
+.grid-cell {
+    background-color: #081525;
     opacity: 1;
+    transition: opacity 0.5s ease;
 }
-.curtain {
-    flex: 1;
-    transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
-}
-.curtain.blue {
-    background-color: #005BBB;
-}
-.curtain.yellow {
-    background-color: #FFD500;
-}
-body.loaded #loading-screen .curtain.blue {
-    transform: translateX(-100%);
-}
-body.loaded #loading-screen .curtain.yellow {
-    transform: translateX(100%);
-}
-@keyframes fadeOutScreen {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
+
+.grid-cell.fade-out {
+    opacity: 0;
 }

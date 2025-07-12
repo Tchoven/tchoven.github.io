@@ -11,15 +11,11 @@
 </head>
 <body class="font-sans">
 
-    <!-- Tela de carregamento agora está presente em todas as páginas -->
-    <div id="loading-screen">
-        <div class="curtain blue"></div>
-        <div class="curtain yellow"></div>
-    </div>
+    <!-- Nova tela de carregamento em grade -->
+    <div id="loading-grid"></div>
 
-    <div class="site-wrapper">
+    <div class="site-wrapper" style="opacity: 0;"> <!-- Conteúdo começa invisível -->
         {% include header.html %}
-        <!-- O conteúdo será revelado após a animação -->
         <main>
             {{ content }}
         </main>
@@ -36,12 +32,36 @@
             });
         }
 
-        // Script da tela de carregamento (agora funciona em todas as páginas)
-        window.addEventListener('load', () => {
-            // Adiciona a classe que dispara a animação de abertura após um pequeno delay
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 200);
+        // Script da tela de carregamento "Mosaico"
+        document.addEventListener("DOMContentLoaded", () => {
+            const gridContainer = document.getElementById('loading-grid');
+            const siteWrapper = document.querySelector('.site-wrapper');
+
+            // Cria a grade de 100 quadrados
+            for (let i = 0; i < 100; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('grid-cell');
+                gridContainer.appendChild(cell);
+            }
+
+            // Garante que a página toda carregou
+            window.addEventListener('load', () => {
+                const cells = document.querySelectorAll('.grid-cell');
+                let shuffledCells = Array.from(cells).sort(() => Math.random() - 0.5);
+
+                // Anima os quadrados desaparecendo em ordem aleatória
+                shuffledCells.forEach((cell, i) => {
+                    setTimeout(() => {
+                        cell.classList.add('fade-out');
+                    }, i * 10); // Atraso pequeno entre cada quadrado
+                });
+
+                // Revela o conteúdo principal após a animação começar
+                setTimeout(() => {
+                    siteWrapper.style.transition = 'opacity 0.5s ease-in';
+                    siteWrapper.style.opacity = '1';
+                }, 500); // 500ms de delay
+            });
         });
     </script>
 </body>
