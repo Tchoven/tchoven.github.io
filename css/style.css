@@ -40,7 +40,7 @@ body:has(#modal-toggle:checked) { overflow: hidden; }
 
 /* CLASSE PARA O FUNDO DO CARD DO EVENTO */
 .evento-card-bg {
-    background-image: url('../assets/img/evento-card-bg.png'); 
+    background-image: url('/assets/img/evento-card-bg.png'); 
     background-position: center center;
     background-size: cover;
 }
