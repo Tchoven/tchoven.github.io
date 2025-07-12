@@ -6,24 +6,25 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <link rel="icon" href="{{ '/assets/img/logo-25-anos.png' | relative_url }}">
 </head>
 <body class="font-sans">
 
-    <!-- Nova tela de carregamento em grade -->
-    <div id="loading-grid"></div>
+    {% include header.html %}
 
-    <div class="site-wrapper" style="opacity: 0;"> <!-- Conteúdo começa invisível -->
-        {% include header.html %}
-        <main>
-            {{ content }}
-        </main>
-        {% include footer.html %}
-    </div>
+    <main class="page-content-wrapper">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
     
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script>
-        // Script do menu mobile
         const menuBtn = document.getElementById('menu-toggle-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if(menuBtn && mobileMenu){
@@ -31,38 +32,6 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
-
-        // Script da tela de carregamento "Mosaico"
-        document.addEventListener("DOMContentLoaded", () => {
-            const gridContainer = document.getElementById('loading-grid');
-            const siteWrapper = document.querySelector('.site-wrapper');
-
-            // Cria a grade de 100 quadrados
-            for (let i = 0; i < 100; i++) {
-                const cell = document.createElement('div');
-                cell.classList.add('grid-cell');
-                gridContainer.appendChild(cell);
-            }
-
-            // Garante que a página toda carregou
-            window.addEventListener('load', () => {
-                const cells = document.querySelectorAll('.grid-cell');
-                let shuffledCells = Array.from(cells).sort(() => Math.random() - 0.5);
-
-                // Anima os quadrados desaparecendo em ordem aleatória
-                shuffledCells.forEach((cell, i) => {
-                    setTimeout(() => {
-                        cell.classList.add('fade-out');
-                    }, i * 10); // Atraso pequeno entre cada quadrado
-                });
-
-                // Revela o conteúdo principal após a animação começar
-                setTimeout(() => {
-                    siteWrapper.style.transition = 'opacity 0.5s ease-in';
-                    siteWrapper.style.opacity = '1';
-                }, 500); // 500ms de delay
-            });
-        });
     </script>
 </body>
 </html>

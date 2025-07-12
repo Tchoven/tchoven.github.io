@@ -2,29 +2,117 @@
 layout: default
 title: Galeria de Fotos
 ---
-<section class="flex items-center justify-center py-24 md:py-32 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
-    <div class="container mx-auto px-4 text-center">
+<section class="py-16 md:py-24 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
+    <div class="container mx-auto px-4">
         
-        <!-- Ícone -->
-        <div class="mb-6">
-            <i class="fas fa-camera-retro text-6xl text-cyan-400 opacity-50"></i>
+        <!-- Título da Galeria -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold mb-2">Galeria de Apresentações</h1>
+            <p class="text-lg text-gray-400">Relembre os momentos que marcaram nossa história.</p>
         </div>
 
-        <!-- Título -->
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Nossa Galeria Está Sendo Montada!</h1>
-        
-        <!-- Subtítulo/Mensagem -->
-        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-            Estamos selecionando com muito carinho os melhores momentos do Grupo para compartilhar com você! Volte em breve!
-        </p>
+        <!-- Álbum 1: 30 FNDU -->
+        <div class="bg-[#0d1a2b] p-4 md:p-8 rounded-2xl border border-[#005BBB]/30 custom-shadow">
+            <div class="mb-6">
+                <h2 class="text-2xl md:text-3xl font-semibold text-[#FFD500]">Apresentação da Dança Hutsulski Novynky</h2>
+                <p class="text-md text-gray-400">30º Festival Nacional de Danças Ucranianas</p>
+                <p class="text-sm text-gray-500 mt-1">Fotos por: Marcos Hupalo</p>
+            </div>
 
-        <!-- Chamada para Ação -->
-        <div class="bg-gray-800/50 p-6 rounded-lg max-w-lg mx-auto border border-gray-700">
-             <p class="text-lg mb-4">Enquanto isso, que tal conhecer mais sobre nossa trajetória?</p>
-             <a href="{{ '/sobre-e-historia/' | relative_url }}" class="inline-block px-8 py-3 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition">
-                Ver Nossa História
-             </a>
+            <!-- Slider principal do Swiper -->
+            <div class="swiper mySwiper relative">
+                <div class="swiper-wrapper">
+                    <!-- As 13 imagens listadas individualmente -->
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 1" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 2" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 3" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 4" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 5" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 6" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 7" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 8" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 9" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 10" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 11" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 12" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                    <div class="swiper-slide bg-black/20 flex items-center justify-center">
+                        <img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 13" class="max-h-[70vh] w-auto object-contain rounded-lg">
+                    </div>
+                </div>
+                <!-- Botões de Navegação -->
+                <div class="swiper-button-next text-white bg-black/30 hover:bg-black/50 p-6 rounded-full transition-colors"></div>
+                <div class="swiper-button-prev text-white bg-black/30 hover:bg-black/50 p-6 rounded-full transition-colors"></div>
+                <!-- Paginação -->
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
+        
+        <!-- Você pode adicionar mais álbuns aqui no futuro, copiando a estrutura acima -->
 
     </div>
 </section>
+
+<!-- Script para inicializar o Swiper -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper(".mySwiper", {
+            lazy: true,
+            loop: true,
+            effect: "fade", // Efeito de transição suave
+            keyboard: {
+                enabled: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+</script>
+
+<style>
+/* Estilo customizado para os botões de navegação e paginação do Swiper */
+.swiper-button-next, .swiper-button-prev {
+    --swiper-navigation-size: 28px;
+    --swiper-navigation-top-offset: 50%;
+    --swiper-navigation-sides-offset: 10px;
+    --swiper-navigation-color: #FFD500;
+}
+.swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0.8);
+}
+.swiper-pagination-bullet-active {
+    background-color: #FFD500;
+    transform: scale(1.2);
+}
+</style>
