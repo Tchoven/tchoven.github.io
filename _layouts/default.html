@@ -7,20 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-    <!-- CAMINHO LOCAL PARA O ICONE -->
     <link rel="icon" href="{{ '/assets/img/logo-25-anos.png' | relative_url }}">
 </head>
 <body class="font-sans">
-    {% include header.html %}
-    <main class="page-content-wrapper">
-        {{ content }}
-    </main>
-    {% include footer.html %}
+
+    <div class="site-wrapper">
+        {% include header.html %}
+        <main class="page-content-wrapper">
+            {{ content }}
+        </main>
+        {% include footer.html %}
+    </div>
+    
     <script>
+        // Script do menu mobile
         const menuBtn = document.getElementById('menu-toggle-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if(menuBtn && mobileMenu){
-            menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
         }
     </script>
 </body>

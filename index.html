@@ -2,24 +2,32 @@
 layout: default
 title: Início
 ---
+<!-- ============================================= -->
+<!--    NOVA TELA DE CARREGAMENTO TEMÁTICA         -->
+<!-- ============================================= -->
+<div id="loading-screen">
+    <div class="curtain blue"></div>
+    <div class="curtain yellow"></div>
+    <img id="loading-logo" src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo 25 Anos Tchóven" class="h-40 w-40">
+</div>
+
 <section id="home" style="background: linear-gradient(rgba(8, 21, 37, 0.85), rgba(8, 21, 37, 0.9)), url('https://images.unsplash.com/photo-1596708723681-12235c43714b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center; background-size: cover;">
     <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
-        <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo Comemorativo 25 Anos Tchóven" class="h-32 w-32 md:h-48 md:w-48 mb-6 animate-on-load"/>
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-gray-200 bg-clip-text text-transparent animate-on-load animation-delay-200ms">25 Anos de Cultura e Dedicação</h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl text-gray-200 animate-on-load animation-delay-400ms">Celebrando 25 anos de cultura e dança ucraniana em São José dos Pinhais.</p>
-        <div class="flex flex-wrap justify-center gap-4 animate-on-load animation-delay-600ms">
+        <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo Comemorativo 25 Anos Tchóven" class="h-32 w-32 md:h-48 md:w-48 mb-6"/>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-gray-200 bg-clip-text text-transparent">25 Anos de Cultura e Dedicação</h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl text-gray-200">Celebrando 25 anos de cultura e dança ucraniana em São José dos Pinhais.</p>
+        <div class="flex flex-wrap justify-center gap-4">
             <a href="{{ '/sobre.html' | relative_url }}" class="px-8 py-3 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition">Conheça o Grupo</a>
             <a href="{{ '/eventos.html' | relative_url }}" class="px-8 py-3 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition">Evento de 25 Anos</a>
         </div>
     </div>
 </section>
 
-<!-- SEÇÃO DA CITAÇÃO COM TEXTO CORRIGIDO -->
 <section class="py-20 bg-gradient-to-b from-[#081525] to-[#0d1a2b]">
     <div class="container mx-auto px-4 max-w-4xl">
         <blockquote class="text-center">
             <p class="font-handwritten text-4xl md:text-5xl text-gray-200 leading-snug">
-                "A Ucrânia não morrerá jamais. Enquanto houver no mundo um grupo jovem que dance suas danças tipicas, cante suas canções folclóricas e cultive as suas tradições como uma chama sagrada, os valores ucranianos hão de passar de uma geração para outra até o fim dos séculos."
+                “Enquanto houver no mundo um grupo jovem que dance suas danças típicas, cante suas canções folclóricas e cultive as suas tradições como uma chama sagrada, os valores ucranianos hão de passar de uma geração para outra até o fim dos séculos.”
             </p>
             <footer class="mt-8 text-2xl text-[#FFD500] font-handwritten">
                 — Helena Kolody
@@ -42,3 +50,12 @@ title: Início
         </div>
     </div>
 </section>
+
+<!-- ============================================= -->
+<!--    SCRIPT PARA CONTROLAR A ANIMAÇÃO           -->
+<!-- ============================================= -->
+<script>
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+</script>

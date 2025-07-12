@@ -12,36 +12,26 @@ body {
 }
 .site-wrapper {
     background-color: #081525;
-    max-width: 1280px; /* Mantém a largura do conteúdo */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    max-width: 1280px;
     margin: 0 auto;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+.page-content-wrapper { 
+    animation: page-load-animation 0.6s ease-out forwards; 
 }
 @keyframes page-load-animation { 
     from { opacity: 0; transform: translateY(15px); } 
     to { opacity: 1; transform: translateY(0); } 
 }
-.page-content-wrapper { 
-    animation: page-load-animation 0.6s ease-out forwards; 
-}
-
-/* NOVA CLASSE PARA FONTE MANUSCRITA - CORRIGIDA */
 .font-handwritten {
-    font-family: 'Dancing Script', cursive !important; /* !important garante que esta regra seja aplicada */
+    font-family: 'Dancing Script', cursive !important;
     font-weight: 700;
 }
-
-
-/* ESTILOS PADRÃO */
 .ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
 @keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
 .text-justify { text-align: justify; } 
 .card-bg { background-color: #1a2c46; }
-.animate-on-load { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animation-delay-200ms { animation-delay: 0.2s; } 
-.animation-delay-400ms { animation-delay: 0.4s; } 
-.animation-delay-600ms { animation-delay: 0.6s; }
 @keyframes flow-down { from { background-position: 0 0; } to { background-position: 0 100%; } } 
 #timeline-line { background-size: 100% 200%; animation: flow-down 8s linear infinite; }
 .nav-link { display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 5px; transition: color 0.3s ease; text-align: center; line-height: 1.3; }
@@ -49,27 +39,69 @@ body {
 .nav-link:hover, .nav-link.active { color: #FFD500; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 .nav-link.active { font-weight: 600; }
-
-/* LÓGICA DO MODAL DE EVENTOS */
 label[for="modal-toggle"] { cursor: pointer; }
-.modal-container { 
-    opacity: 0; 
-    visibility: hidden; 
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(8, 21, 37, 0.9); 
-    z-index: 60; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: opacity 0.3s ease, visibility 0.3s ease; 
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px); 
-}
+.modal-container { opacity: 0; visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(8, 21, 37, 0.9); z-index: 60; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease, visibility 0.3s ease; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 #modal-toggle { display: none; }
 #modal-toggle:checked + .modal-container { opacity: 1; visibility: visible; }
 body:has(#modal-toggle:checked) { overflow: hidden; }
 .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
 #modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
+
+/* ========================================================= */
+/*      NOVA ANIMAÇÃO DE CARREGAMENTO "CORTINAS"             */
+/* ========================================================= */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Usa a largura da viewport */
+    height: 100vh; /* Usa a altura da viewport */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    animation: fadeOutScreen 0.5s 2.5s forwards;
+    opacity: 1; /* Garante que está visível no início */
+}
+.curtain {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.curtain.blue {
+    background-color: #005BBB;
+}
+.curtain.yellow {
+    background-color: #FFD500;
+}
+#loading-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    animation: fadeInLogo 1s 0.2s forwards;
+}
+body.loaded #loading-screen .curtain.blue {
+    transform: translateX(-100%);
+}
+body.loaded #loading-screen .curtain.yellow {
+    transform: translateX(100%);
+}
+body.loaded #loading-screen #loading-logo {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+@keyframes fadeInLogo {
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes fadeOutScreen {
+    to {
+        opacity: 0;
+    }
+}
