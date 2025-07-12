@@ -2,9 +2,10 @@
 layout: default
 title: Início
 ---
+<!-- Tela de Carregamento (fica no _layouts/default.html) -->
+
 <section id="home" style="background: linear-gradient(rgba(8, 21, 37, 0.85), rgba(8, 21, 37, 0.9)), url('https://images.unsplash.com/photo-1596708723681-12235c43714b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center; background-size: cover;">
     <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
-        <!-- Removida a classe de animação daqui, pois a página toda agora é animada -->
         <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo Comemorativo 25 Anos Tchóven" class="h-32 w-32 md:h-48 md:w-48 mb-6"/>
         <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-gray-200 bg-clip-text text-transparent">25 Anos de Cultura e Dedicação</h1>
         <p class="text-xl md:text-2xl mb-8 max-w-3xl text-gray-200">Celebrando 25 anos de cultura e dança ucraniana em São José dos Pinhais.</p>
@@ -15,16 +16,22 @@ title: Início
     </div>
 </section>
 
+<!-- ============================================= -->
+<!--          SEÇÃO DA CITAÇÃO COM QUADRO          -->
+<!-- ============================================= -->
 <section class="py-20 bg-gradient-to-b from-[#081525] to-[#0d1a2b]">
     <div class="container mx-auto px-4 max-w-4xl">
-        <blockquote class="text-center">
-            <p class="font-handwritten text-4xl md:text-5xl text-gray-200 leading-snug">
-                “Enquanto houver no mundo um grupo jovem que dance suas danças típicas, cante suas canções folclóricas e cultive as suas tradições como uma chama sagrada, os valores ucranianos hão de passar de uma geração para outra até o fim dos séculos.”
-            </p>
-            <footer class="mt-8 text-2xl text-[#FFD500] font-handwritten">
-                — Helena Kolody
-            </footer>
-        </blockquote>
+        <!-- Div que cria o efeito de quadro -->
+        <div class="bg-[#0d1a2b] p-8 md:p-12 rounded-2xl border border-[#005BBB]/50 custom-shadow">
+            <blockquote class="text-center">
+                <p class="font-handwritten text-4xl md:text-5xl text-gray-200 leading-snug">
+                    “Enquanto houver no mundo um grupo jovem que dance suas danças típicas, cante suas canções folclóricas e cultive as suas tradições como uma chama sagrada, os valores ucranianos hão de passar de uma geração para outra até o fim dos séculos.”
+                </p>
+                <footer class="mt-8 text-2xl text-[#FFD500] font-handwritten">
+                    — Helena Kolody
+                </footer>
+            </blockquote>
+        </div>
     </div>
 </section>
 
