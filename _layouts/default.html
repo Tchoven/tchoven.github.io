@@ -16,7 +16,7 @@
     <div id="loading-screen">
         <div class="curtain blue"></div>
         <div class="curtain yellow"></div>
-        <img id="loading-logo" src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo 25 Anos Tchóven" class="h-40 w-40">
+        <!-- A TAG DA LOGO FOI REMOVIDA DAQUI -->
     </div>
     {% endif %}
 
@@ -42,7 +42,10 @@
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
             window.addEventListener('load', () => {
-                document.body.classList.add('loaded');
+                // Adiciona a classe que dispara a animação de abertura após um pequeno delay
+                setTimeout(() => {
+                    document.body.classList.add('loaded');
+                }, 200); // 200ms de delay para garantir que tudo esteja pronto
             });
         }
     </script>
