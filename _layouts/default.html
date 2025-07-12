@@ -11,9 +11,18 @@
 </head>
 <body class="font-sans">
 
+    <!-- LÓGICA JEKYLL: Exibe a tela de carregamento APENAS na página inicial -->
+    {% if page.url == '/' or page.url == '/index.html' %}
+    <div id="loading-screen">
+        <div class="curtain blue"></div>
+        <div class="curtain yellow"></div>
+        <img id="loading-logo" src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo 25 Anos Tchóven" class="h-40 w-40">
+    </div>
+    {% endif %}
+
     <div class="site-wrapper">
         {% include header.html %}
-        <main class="page-content-wrapper">
+        <main class="{% if page.url != '/' and page.url != '/index.html' %}page-content-wrapper{% endif %}">
             {{ content }}
         </main>
         {% include footer.html %}
@@ -26,6 +35,14 @@
         if(menuBtn && mobileMenu){
             menuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Script da tela de carregamento (executa apenas se o elemento existir)
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            window.addEventListener('load', () => {
+                document.body.classList.add('loaded');
             });
         }
     </script>
