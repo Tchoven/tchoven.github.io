@@ -41,11 +41,19 @@ title: Galeria de Fotos
 }
 .lightbox:target {
     display: flex;
+    animation: fadeInLightbox 0.3s ease;
+}
+@keyframes fadeInLightbox {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 .lightbox-content {
     position: relative;
     max-width: 90%;
     max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .lightbox-content img {
     max-width: 100%;
@@ -61,7 +69,30 @@ title: Galeria de Fotos
     text-decoration: none;
     font-weight: bold;
     line-height: 1;
+    z-index: 1002;
+    padding: 0 0.5rem;
 }
+/* Estilo das setas de navegação */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    padding: 0 1rem;
+    z-index: 1001;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.lightbox-nav:hover {
+    opacity: 1;
+}
+.prev { left: 1rem; }
+.next { right: 1rem; }
 </style>
 
 <section class="py-16 md:py-24 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
@@ -81,35 +112,35 @@ title: Galeria de Fotos
 
             <!-- Grade da Galeria -->
             <div class="gallery-grid">
-                <div class="gallery-item"><a href="#img1"><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}" alt="Foto 1"></a></div>
-                <div class="gallery-item"><a href="#img2"><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}" alt="Foto 2"></a></div>
-                <div class="gallery-item"><a href="#img3"><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}" alt="Foto 3"></a></div>
-                <div class="gallery-item"><a href="#img4"><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}" alt="Foto 4"></a></div>
-                <div class="gallery-item"><a href="#img5"><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}" alt="Foto 5"></a></div>
-                <div class="gallery-item"><a href="#img6"><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}" alt="Foto 6"></a></div>
-                <div class="gallery-item"><a href="#img7"><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}" alt="Foto 7"></a></div>
-                <div class="gallery-item"><a href="#img8"><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}" alt="Foto 8"></a></div>
-                <div class="gallery-item"><a href="#img9"><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}" alt="Foto 9"></a></div>
-                <div class="gallery-item"><a href="#img10"><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}" alt="Foto 10"></a></div>
-                <div class="gallery-item"><a href="#img11"><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}" alt="Foto 11"></a></div>
-                <div class="gallery-item"><a href="#img12"><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}" alt="Foto 12"></a></div>
-                <div class="gallery-item"><a href="#img13"><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}" alt="Foto 13"></a></div>
+                <div class="gallery-item"><a href="#img1"><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 1"></a></div>
+                <div class="gallery-item"><a href="#img2"><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 2"></a></div>
+                <div class="gallery-item"><a href="#img3"><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 3"></a></div>
+                <div class="gallery-item"><a href="#img4"><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 4"></a></div>
+                <div class="gallery-item"><a href="#img5"><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 5"></a></div>
+                <div class="gallery-item"><a href="#img6"><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 6"></a></div>
+                <div class="gallery-item"><a href="#img7"><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 7"></a></div>
+                <div class="gallery-item"><a href="#img8"><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 8"></a></div>
+                <div class="gallery-item"><a href="#img9"><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 9"></a></div>
+                <div class="gallery-item"><a href="#img10"><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 10"></a></div>
+                <div class="gallery-item"><a href="#img11"><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 11"></a></div>
+                <div class="gallery-item"><a href="#img12"><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 12"></a></div>
+                <div class="gallery-item"><a href="#img13"><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 13"></a></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Lightboxes -->
-<div id="img1" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}"></div></div>
-<div id="img2" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}"></div></div>
-<div id="img3" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}"></div></div>
-<div id="img4" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}"></div></div>
-<div id="img5" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}"></div></div>
-<div id="img6" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}"></div></div>
-<div id="img7" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}"></div></div>
-<div id="img8" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}"></div></div>
-<div id="img9" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}"></div></div>
-<div id="img10" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}"></div></div>
-<div id="img11" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}"></div></div>
-<div id="img12" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}"></div></div>
-<div id="img13" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}"></div></div>
+<!-- Lightboxes com Navegação Explícita -->
+<div id="img1" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img13" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}"><a href="#img2" class="lightbox-nav next">›</a></div></div>
+<div id="img2" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img1" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}"><a href="#img3" class="lightbox-nav next">›</a></div></div>
+<div id="img3" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img2" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}"><a href="#img4" class="lightbox-nav next">›</a></div></div>
+<div id="img4" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img3" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}"><a href="#img5" class="lightbox-nav next">›</a></div></div>
+<div id="img5" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img4" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}"><a href="#img6" class="lightbox-nav next">›</a></div></div>
+<div id="img6" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img5" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}"><a href="#img7" class="lightbox-nav next">›</a></div></div>
+<div id="img7" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img6" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}"><a href="#img8" class="lightbox-nav next">›</a></div></div>
+<div id="img8" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img7" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}"><a href="#img9" class="lightbox-nav next">›</a></div></div>
+<div id="img9" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img8" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}"><a href="#img10" class="lightbox-nav next">›</a></div></div>
+<div id="img10" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img9" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}"><a href="#img11" class="lightbox-nav next">›</a></div></div>
+<div id="img11" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img10" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}"><a href="#img12" class="lightbox-nav next">›</a></div></div>
+<div id="img12" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img11" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}"><a href="#img13" class="lightbox-nav next">›</a></div></div>
+<div id="img13" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img12" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}"><a href="#img1" class="lightbox-nav next">›</a></div></div>
