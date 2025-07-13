@@ -3,36 +3,21 @@ layout: default
 title: Galeria de Fotos
 ---
 <style>
-/* Estilos para o Card do Álbum e Lightbox */
+/* Estilos da Galeria e Lightbox */
 .album-card {
-    display: block;
-    background-color: #1a2c46;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(0, 91, 187, 0.2);
+    display: block; background-color: #1a2c46; border-radius: 0.75rem;
+    overflow: hidden; position: relative; border: 1px solid rgba(0, 91, 187, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.album-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 91, 187, 0.3);
-}
-.album-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
+.album-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 91, 187, 0.3); }
+.album-card img { width: 100%; height: 250px; object-fit: cover; }
 .album-card-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: absolute; bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    padding: 2rem 1rem 1rem;
-    color: white;
+    padding: 2rem 1rem 1rem; color: white;
 }
 
-/* Lightbox com JS (o mesmo estilo da resposta anterior) */
+/* Lightbox com JS */
 .lightbox {
     display: none; opacity: 0; position: fixed; top: 0; left: 0;
     width: 100%; height: 100%; background-color: rgba(8, 21, 37, 0.95);
@@ -40,14 +25,43 @@ title: Galeria de Fotos
     backdrop-filter: blur(5px); transition: opacity 0.3s ease;
 }
 .lightbox.active { display: flex; opacity: 1; }
-.lightbox-content { position: relative; max-width: 90%; max-height: 90%; }
-#lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 0.5rem; opacity: 1; transition: opacity 0.3s ease-in-out; }
+.lightbox-content {
+    position: relative; max-width: 90%; max-height: 90%;
+    display: flex; justify-content: center; align-items: center;
+}
+#lightbox-img {
+    max-width: 100%; max-height: 90vh; border-radius: 0.5rem;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-in-out;
+}
 .lightbox-nav, .lightbox-close { position: absolute; color: white; text-decoration: none; font-weight: bold; z-index: 1002; cursor: pointer; }
 .lightbox-close { top: -5px; right: 5px; font-size: 2.5rem; line-height: 1; padding: 0 0.5rem; }
 .lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 3rem; background-color: rgba(0,0,0,0.3); border-radius: 50%; line-height: 0.9; padding: 0 1rem; opacity: 0.7; transition: opacity 0.2s ease; }
 .lightbox-nav:hover { opacity: 1; }
 .prev { left: 1rem; }
 .next { right: 1rem; }
+
+/* Spinner de Carregamento */
+.lightbox-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #FFD500;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 1001;
+    display: none; /* Controlado por JS */
+}
+.lightbox-loader.show {
+    display: block;
+}
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
 </style>
 
 <section class="py-16 md:py-24 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
@@ -58,10 +72,7 @@ title: Galeria de Fotos
             <p class="text-lg text-gray-400">Clique em um álbum para ver as fotos.</p>
         </div>
 
-        <!-- Grade de Álbuns (atualmente com um álbum) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Card do Álbum -->
             <a href="#" id="album-30fndu" class="album-card group">
                 <img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}" alt="Capa do álbum 30º FNDU">
                 <div class="album-card-footer">
@@ -73,18 +84,17 @@ title: Galeria de Fotos
                     </div>
                 </div>
             </a>
-            
-            <!-- Você poderá adicionar mais cards de álbuns aqui no futuro -->
-
         </div>
     </div>
 </section>
 
-<!-- Estrutura do Lightbox ÚNICO (HTML não muda) -->
+<!-- Estrutura do Lightbox ÚNICO com Loader -->
 <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
         <button id="lightbox-close" class="lightbox-close">×</button>
         <button id="lightbox-prev" class="lightbox-nav prev">‹</button>
+        <!-- Loader e Imagem -->
+        <div id="lightbox-loader" class="lightbox-loader"></div>
         <img id="lightbox-img" src="" alt="Galeria de fotos em tela cheia">
         <button id="lightbox-next" class="lightbox-nav next">›</button>
     </div>
@@ -95,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const albumCard = document.getElementById('album-30fndu');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxLoader = document.getElementById('lightbox-loader');
     const closeBtn = document.getElementById('lightbox-close');
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
@@ -112,18 +123,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showImage = (index) => {
         currentIndex = index;
-        lightboxImg.style.opacity = '0';
-        setTimeout(() => {
-            lightboxImg.src = imageUrls[currentIndex];
-            lightboxImg.style.opacity = '1';
-        }, 200);
+        lightboxImg.style.opacity = '0'; // Esconde a imagem antiga
+        lightboxLoader.classList.add('show'); // Mostra o spinner
+
+        const img = new Image();
+        img.src = imageUrls[currentIndex];
+
+        // Quando a nova imagem terminar de carregar...
+        img.onload = () => {
+            lightboxImg.src = img.src; // Atualiza a tag img
+            lightboxLoader.classList.remove('show'); // Esconde o spinner
+            lightboxImg.style.opacity = '1'; // Mostra a nova imagem com fade
+        };
     };
 
     if (albumCard) {
         albumCard.addEventListener('click', e => {
             e.preventDefault();
-            showImage(0); // Abre sempre na primeira foto
             lightbox.classList.add('active');
+            showImage(0); 
         });
     }
 
