@@ -3,144 +3,189 @@ layout: default
 title: Galeria de Fotos
 ---
 <style>
-/* Estilos para a Galeria Lightbox com CSS Puro */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-}
-.gallery-item a {
-    display: block;
-    overflow: hidden;
-    border-radius: 0.5rem;
-}
-.gallery-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.gallery-item a:hover img {
-    transform: scale(1.05);
-}
+    /* Estilos para a Galeria e o Lightbox com JS */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    .gallery-item a {
+        display: block;
+        overflow: hidden;
+        border-radius: 0.5rem;
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .gallery-item a:hover img {
+        transform: scale(1.05);
+    }
 
-/* Lightbox (Tela Cheia) */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(8, 21, 37, 0.95);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-.lightbox:target {
-    display: flex;
-    animation: fadeInLightbox 0.3s ease;
-}
-@keyframes fadeInLightbox {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.lightbox-content img {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 0.5rem;
-}
-.lightbox-close {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    color: white;
-    font-size: 2.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    line-height: 1;
-    z-index: 1002;
-    padding: 0 0.5rem;
-}
-/* Estilo das setas de navegação */
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    text-decoration: none;
-    font-size: 3rem;
-    padding: 0 1rem;
-    z-index: 1001;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 50%;
-    line-height: 1;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-}
-.lightbox-nav:hover {
-    opacity: 1;
-}
-.prev { left: 1rem; }
-.next { right: 1rem; }
+    /* Lightbox com JS */
+    .lightbox {
+        display: none; /* Controlado por JS */
+        opacity: 0;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(8, 21, 37, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+    .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+    }
+    #lightbox-img {
+        max-width: 100%;
+        max-height: 90vh;
+        border-radius: 0.5rem;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out; /* Animação de fade da imagem */
+    }
+    .lightbox-nav, .lightbox-close {
+        position: absolute;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        z-index: 1002;
+        cursor: pointer;
+    }
+    .lightbox-close { top: -5px; right: 5px; font-size: 2.5rem; line-height: 1; padding: 0 0.5rem; }
+    .lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 3rem; background-color: rgba(0,0,0,0.3); border-radius: 50%; line-height: 0.9; padding: 0 1rem; opacity: 0.7; transition: opacity 0.2s ease; }
+    .lightbox-nav:hover { opacity: 1; }
+    .prev { left: 1rem; }
+    .next { right: 1rem; }
 </style>
 
 <section class="py-16 md:py-24 bg-gradient-to-b from-[#081525] to-[#0d1a2b] text-white">
     <div class="container mx-auto px-4">
-        
         <div class="text-center mb-12">
             <h1 class="text-3xl md:text-5xl font-bold mb-2">Galeria de Apresentações</h1>
             <p class="text-lg text-gray-400">Relembre os momentos que marcaram nossa história.</p>
         </div>
-
         <div class="bg-[#0d1a2b] p-4 md:p-8 rounded-2xl border border-[#005BBB]/30 custom-shadow">
             <div class="mb-6">
                 <h2 class="text-2xl md:text-3xl font-semibold text-[#FFD500]">Apresentação da Dança Hutsulski Novynky</h2>
                 <p class="text-md text-gray-400">30º Festival Nacional de Danças Ucranianas</p>
                 <p class="text-sm text-gray-500 mt-1">Fotos por: Marcos Hupalo</p>
             </div>
-
-            <!-- Grade da Galeria -->
-            <div class="gallery-grid">
-                <div class="gallery-item"><a href="#img1"><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 1"></a></div>
-                <div class="gallery-item"><a href="#img2"><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 2"></a></div>
-                <div class="gallery-item"><a href="#img3"><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 3"></a></div>
-                <div class="gallery-item"><a href="#img4"><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 4"></a></div>
-                <div class="gallery-item"><a href="#img5"><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 5"></a></div>
-                <div class="gallery-item"><a href="#img6"><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 6"></a></div>
-                <div class="gallery-item"><a href="#img7"><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 7"></a></div>
-                <div class="gallery-item"><a href="#img8"><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 8"></a></div>
-                <div class="gallery-item"><a href="#img9"><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 9"></a></div>
-                <div class="gallery-item"><a href="#img10"><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 10"></a></div>
-                <div class="gallery-item"><a href="#img11"><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 11"></a></div>
-                <div class="gallery-item"><a href="#img12"><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 12"></a></div>
-                <div class="gallery-item"><a href="#img13"><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}" alt="Apresentação no 30º FNDU - Foto 13"></a></div>
+            <div id="gallery" class="gallery-grid">
+                <!-- Imagens são geradas pelo JS, mas podemos deixar o HTML explícito se necessário -->
             </div>
         </div>
     </div>
 </section>
 
-<!-- Lightboxes com Navegação Explícita -->
-<div id="img1" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img13" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/1.jpg' | relative_url }}"><a href="#img2" class="lightbox-nav next">›</a></div></div>
-<div id="img2" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img1" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/2.jpg' | relative_url }}"><a href="#img3" class="lightbox-nav next">›</a></div></div>
-<div id="img3" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img2" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/3.jpg' | relative_url }}"><a href="#img4" class="lightbox-nav next">›</a></div></div>
-<div id="img4" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img3" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/4.jpg' | relative_url }}"><a href="#img5" class="lightbox-nav next">›</a></div></div>
-<div id="img5" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img4" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/5.jpg' | relative_url }}"><a href="#img6" class="lightbox-nav next">›</a></div></div>
-<div id="img6" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img5" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/6.jpg' | relative_url }}"><a href="#img7" class="lightbox-nav next">›</a></div></div>
-<div id="img7" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img6" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/7.jpg' | relative_url }}"><a href="#img8" class="lightbox-nav next">›</a></div></div>
-<div id="img8" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img7" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/8.jpg' | relative_url }}"><a href="#img9" class="lightbox-nav next">›</a></div></div>
-<div id="img9" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img8" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/9.jpg' | relative_url }}"><a href="#img10" class="lightbox-nav next">›</a></div></div>
-<div id="img10" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img9" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/10.jpg' | relative_url }}"><a href="#img11" class="lightbox-nav next">›</a></div></div>
-<div id="img11" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img10" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/11.jpg' | relative_url }}"><a href="#img12" class="lightbox-nav next">›</a></div></div>
-<div id="img12" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img11" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/12.jpg' | relative_url }}"><a href="#img13" class="lightbox-nav next">›</a></div></div>
-<div id="img13" class="lightbox"><div class="lightbox-content"><a href="#_" class="lightbox-close">×</a><a href="#img12" class="lightbox-nav prev">‹</a><img src="{{ '/assets/img/30fndua/13.jpg' | relative_url }}"><a href="#img1" class="lightbox-nav next">›</a></div></div>
+<!-- Estrutura do Lightbox ÚNICO -->
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <button id="lightbox-close" class="lightbox-close">×</button>
+        <button id="lightbox-prev" class="lightbox-nav prev">‹</button>
+        <img id="lightbox-img" src="" alt="Galeria de fotos em tela cheia">
+        <button id="lightbox-next" class="lightbox-nav next">›</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    // Lista de todas as imagens
+    const imageUrls = [
+        "{{ '/assets/img/30fndua/1.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/2.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/3.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/4.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/5.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/6.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/7.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/8.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/9.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/10.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/11.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/12.jpg' | relative_url }}",
+        "{{ '/assets/img/30fndua/13.jpg' | relative_url }}"
+    ];
+    let currentIndex = 0;
+
+    // Gera as miniaturas na galeria
+    imageUrls.forEach((url, index) => {
+        const item = `
+            <div class="gallery-item">
+                <a href="${url}" data-index="${index}">
+                    <img src="${url}" alt="Apresentação no 30º FNDU - Foto ${index + 1}">
+                </a>
+            </div>
+        `;
+        gallery.innerHTML += item;
+    });
+    
+    // Função para mostrar a imagem
+    const showImage = (index) => {
+        currentIndex = index;
+        lightboxImg.style.opacity = '0'; // Começa a transição de fade out
+        setTimeout(() => {
+            lightboxImg.src = imageUrls[currentIndex];
+            lightboxImg.style.opacity = '1'; // Inicia a transição de fade in
+        }, 300); // Espera o fade out terminar
+    };
+
+    // Abre o lightbox ao clicar numa imagem
+    gallery.addEventListener('click', e => {
+        e.preventDefault();
+        if (e.target.closest('a')) {
+            const index = parseInt(e.target.closest('a').dataset.index);
+            showImage(index);
+            lightbox.classList.add('active');
+        }
+    });
+
+    // Navegação
+    const showNext = () => {
+        const nextIndex = (currentIndex + 1) % imageUrls.length;
+        showImage(nextIndex);
+    };
+
+    const showPrev = () => {
+        const prevIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+        showImage(prevIndex);
+    };
+
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    // Fecha o lightbox
+    const closeLightbox = () => lightbox.classList.remove('active');
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Navegação por teclado
+    document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') closeLightbox();
+    });
+});
+</script>
