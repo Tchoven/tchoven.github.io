@@ -1,67 +1,8 @@
-/* Importa a fonte manuscrita do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
-/* ESTILOS GERAIS E ANIMAÇÕES */
-html { scroll-behavior: smooth; }
-body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
-.site-wrapper { background-color: #081525; max-width: 1280px; margin: 0 auto; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
-.font-handwritten { font-family: 'Dancing Script', cursive !important; font-weight: 700; }
-.ukrainian-gradient-text { background: linear-gradient(90deg, #005BBB, #FFD500, #005BBB); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: ukrainian-gradient-flow 10s linear infinite; }
-@keyframes ukrainian-gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-.custom-shadow { box-shadow: 0 4px 30px rgba(0, 91, 187, 0.3); }
-.text-justify { text-align: justify; } 
-.card-bg { background-color: #1a2c46; }
-@keyframes flow-down { from { background-position: 0 0; } to { background-position: 0 100%; } } 
-#timeline-line { background-size: 100% 200%; animation: flow-down 8s linear infinite; }
-.nav-link { display: flex; align-items: center; justify-content: center; position: relative; padding-bottom: 5px; transition: color 0.3s ease; text-align: center; line-height: 1.3; }
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #FFD500; transition: width 0.3s ease-in-out; }
-.nav-link:hover, .nav-link.active { color: #FFD500; }
-.nav-link:hover::after, .nav-link.active::after { width: 100%; }
-.nav-link.active { font-weight: 600; }
-label[for="modal-toggle"] { cursor: pointer; }
-.modal-container { opacity: 0; visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(8, 21, 37, 0.9); z-index: 60; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease, visibility 0.3s ease; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-#modal-toggle { display: none; }
-#modal-toggle:checked + .modal-container { opacity: 1; visibility: visible; }
-body:has(#modal-toggle:checked) { overflow: hidden; }
-.modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
-#modal-toggle:checked + .modal-container .modal-content { transform: scale(1); }
-
-/* ========================================================= */
-/*      NOVA ANIMAÇÃO DE CARREGAMENTO "MOSAICO"              */
-/* ========================================================= */
-#loading-grid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    pointer-events: none;
-    transition: opacity 0.5s 1.5s ease; /* Some suavemente após a animação dos quadrados */
-}
-
-body.loaded #loading-grid {
-    opacity: 0;
-}
-
-.grid-cell {
-    background-color: #081525;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.grid-cell.fade-out {
-    opacity: 0;
-}
-
 /* =============================================== */
-/*      ESTILOS ADICIONADOS PARA ATUALIZAÇÃO       */
+/*      ESTILOS ATUALIZADOS (CRONÔMETRO/BADGE)     */
 /* =============================================== */
 
-/* Destaque "CONFIRA!" na página inicial */
+/* Destaque "CONFIRA!" - Arredondado, Inclinado e Pulsante */
 .highlight-badge {
     position: absolute;
     top: -12px;
@@ -71,15 +12,25 @@ body.loaded #loading-grid {
     font-size: 12px;
     font-weight: bold;
     padding: 3px 8px;
-    border-radius: 9999px;
+    border-radius: 9999px; /* Deixa completamente arredondado (pílula) */
+    transform: rotate(-10deg); /* Adiciona a inclinação */
     animation: pulse-badge 1.5s infinite;
     z-index: 10;
 }
 
 @keyframes pulse-badge {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
-    70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+    0% {
+        transform: scale(1) rotate(-10deg);
+        box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7);
+    }
+    70% {
+        transform: scale(1.1) rotate(-10deg);
+        box-shadow: 0 0 0 10px rgba(229, 62, 62, 0);
+    }
+    100% {
+        transform: scale(1) rotate(-10deg);
+        box-shadow: 0 0 0 0 rgba(229, 62, 62, 0);
+    }
 }
 
 /* Estilos da Contagem Regressiva */
@@ -88,30 +39,31 @@ body.loaded #loading-grid {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 91, 187, 0.2);
+    background-color: rgba(13, 26, 43, 0.5);
     border-radius: 0.5rem;
     width: 80px;
     height: 80px;
-    border: 1px solid rgba(0, 91, 187, 0.4);
+    border: 1px solid rgba(0, 91, 187, 0.5);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
 }
 .countdown-item .number {
-    font-size: 2.25rem; /* 36px */
+    font-size: 2.25rem;
     font-weight: bold;
     color: #FFD500;
     line-height: 1;
 }
 .countdown-item .label {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem;
     text-transform: uppercase;
-    color: #cbd5e0; /* cinza claro */
+    color: #cbd5e0;
 }
 
 /* Aviso de Ingressos Esgotados */
 .sold-out-banner {
     text-align: center;
     padding: 1rem;
-    border: 2px solid #e53e3e; /* Vermelho */
+    border: 2px solid #e53e3e;
     background-color: rgba(229, 62, 62, 0.1);
     border-radius: 0.5rem;
-    color: #fed7d7; /* Vermelho claro */
+    color: #fed7d7;
 }
