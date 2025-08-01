@@ -20,9 +20,11 @@ body { background-color: #081525; color: #f7fafc; font-family: sans-serif; }
 .nav-link.active { font-weight: 600; }
 label[for="modal-toggle"] { cursor: pointer; }
 
-/* --- CORREÇÃO DO MODAL --- */
+/* --- CORREÇÃO GLOBAL DO LAYOUT --- */
+/* O código do modal estava sendo renderizado como um elemento vazio no topo de todas as páginas, quebrando o layout. */
+/* Esta correção garante que ele só exista quando for ativado. */
 .modal-container {
-    display: none; /* CORREÇÃO: Inicia escondido e sem ocupar espaço */
+    display: none; /* CORREÇÃO CRÍTICA: Faz o modal não ocupar espaço quando escondido. */
     opacity: 0;
     visibility: hidden;
     position: fixed;
@@ -40,7 +42,7 @@ label[for="modal-toggle"] { cursor: pointer; }
 }
 #modal-toggle { display: none; }
 #modal-toggle:checked + .modal-container {
-    display: flex; /* CORREÇÃO: Aparece somente quando ativado */
+    display: flex; /* CORREÇÃO CRÍTICA: Mostra o modal como flex container quando o checkbox é marcado. */
     opacity: 1;
     visibility: visible;
 }

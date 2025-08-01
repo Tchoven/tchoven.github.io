@@ -3,13 +3,13 @@ layout: default
 title: Início
 description: "Celebrando 25 anos de cultura e dança ucraniana em São José dos Pinhais. Conheça nossa história, eventos e participe da nossa festa de aniversário."
 ---
-<section id="home" style="background: linear-gradient(rgba(8, 21, 37, 0.85), rgba(8, 21, 37, 0.9)), url('https://images.unsplash.com/photo-1596708723681-12235c43714b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center; background-size: cover;">
+<section id="home" style="background: linear-gradient(rgba(8, 21, 37, 0.85), rgba(8, 21, 37, 0.9)), url('{{ '/assets/img/hero-bg.jpg' | relative_url }}') no-repeat center center; background-size: cover;">
     <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
         <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo Comemorativo 25 Anos Tchóven" class="h-32 w-32 md:h-48 md:w-48 mb-6"/>
         <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-gray-200 bg-clip-text text-transparent">25 Anos de Cultura e Dedicação</h1>
         <p class="text-xl md:text-2xl mb-8 max-w-3xl text-gray-200">Celebrando 25 anos de cultura e dança ucraniana em São José dos Pinhais.</p>
-        <div class="flex flex-wrap justify-center items-start gap-4">
-            <a href="{{ '/sobre-e-historia/' | relative_url }}" class="px-8 py-3 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition self-center">Conheça o Grupo</a>
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            <a href="{{ '/sobre-e-historia/' | relative_url }}" class="px-8 py-3 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition">Conheça o Grupo</a>
             <div class="relative">
                 <span class="highlight-badge">CONFIRA!</span>
                 <a href="{{ '/eventos/' | relative_url }}" class="inline-block px-8 py-3 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition">Evento de 25 Anos</a>
