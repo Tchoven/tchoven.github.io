@@ -56,3 +56,62 @@ body.loaded #loading-grid {
 .grid-cell.fade-out {
     opacity: 0;
 }
+
+/* =============================================== */
+/*      ESTILOS ADICIONADOS PARA ATUALIZAÇÃO       */
+/* =============================================== */
+
+/* Destaque "CONFIRA!" na página inicial */
+.highlight-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #e53e3e; /* Vermelho */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    animation: pulse-badge 1.5s infinite;
+    z-index: 10;
+}
+
+@keyframes pulse-badge {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+}
+
+/* Estilos da Contagem Regressiva */
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 91, 187, 0.2);
+    border-radius: 0.5rem;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(0, 91, 187, 0.4);
+}
+.countdown-item .number {
+    font-size: 2.25rem; /* 36px */
+    font-weight: bold;
+    color: #FFD500;
+    line-height: 1;
+}
+.countdown-item .label {
+    font-size: 0.75rem; /* 12px */
+    text-transform: uppercase;
+    color: #cbd5e0; /* cinza claro */
+}
+
+/* Aviso de Ingressos Esgotados */
+.sold-out-banner {
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid #e53e3e; /* Vermelho */
+    background-color: rgba(229, 62, 62, 0.1);
+    border-radius: 0.5rem;
+    color: #fed7d7; /* Vermelho claro */
+}

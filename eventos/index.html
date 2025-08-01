@@ -20,6 +20,15 @@ description: "Participe do nosso evento de 25 anos! Garanta seu ingresso para um
 <section id="events" class="py-20">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold mb-4">Evento de <span class="ukrainian-gradient-text">25 Anos</span></h2><p class="text-lg text-gray-300 max-w-2xl mx-auto">Participe deste momento histórico e celebre a cultura ucraniana com a gente!</p></div>
+        
+        <!-- Contagem Regressiva -->
+        <div id="countdown-container" class="flex justify-center items-center gap-4 md:gap-8 text-white text-center mb-12">
+            <div class="countdown-item"><span id="days" class="number">00</span><span class="label">Dias</span></div>
+            <div class="countdown-item"><span id="hours" class="number">00</span><span class="label">Horas</span></div>
+            <div class="countdown-item"><span id="minutes" class="number">00</span><span class="label">Minutos</span></div>
+            <div class="countdown-item"><span id="seconds" class="number">00</span><span class="label">Segundos</span></div>
+        </div>
+
         <div class="max-w-4xl mx-auto bg-cover bg-center rounded-xl overflow-hidden border border-[#005BBB]/30 custom-shadow" style="background-image: url('{{ '/assets/img/evento-card-bg.png' | relative_url }}')">
             <div class="bg-[#14243c]/80 backdrop-blur-sm p-8 md:p-12">
                 <div class="flex flex-col md:flex-row items-center gap-8">
@@ -27,11 +36,17 @@ description: "Participe do nosso evento de 25 anos! Garanta seu ingresso para um
                     <div class="md:border-l-2 border-[#FFD500]/50 md:pl-8 flex-grow">
                         <h3 class="text-3xl font-bold mb-4">Celebração de 25 Anos do Tchóven</h3>
                         <div class="space-y-4"><p><strong class="text-[#FFD500]">17:00:</strong> Divina Liturgia de Ação de Graças na Igreja Greco-Católica Ucraniana N. S. do Perpétuo Socorro.</p><p><strong class="text-[#FFD500]">A partir das 19:00:</strong> Atrações no Salão da Igreja com Apresentação de Dança, Jantar Festivo e Animação com <strong class="text-white">Celso Taborda</strong>.</p></div>
-                        <div class="mt-6 border-t border-gray-600 pt-4"><h4 class="font-bold mb-2">Ingressos:</h4><ul class="list-disc list-inside text-gray-300"><li>Adulto: R$ 65,00</li><li>Crianças de 5 a 10 anos: R$ 32,50</li><li>Bebidas vendidas à parte.</li></ul>
-                        <div class="flex flex-wrap gap-4 mt-6">
-                            <a href="{{ '/apoiadores-e-contato/' | relative_url }}" class="inline-block px-6 py-2 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition">Garanta seu ingresso!</a>
-                            <a href="{{ '/detalhes-evento/' | relative_url }}" class="inline-block px-6 py-2 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition">Saiba Mais sobre o Evento</a>
-                        </div>
+                        <div class="mt-6 border-t border-gray-600 pt-6">
+                            
+                            <!-- AVISO DE INGRESSOS ESGOTADOS -->
+                            <div class="sold-out-banner">
+                                <h3 class="text-2xl font-bold mb-2">INGRESSOS ESGOTADOS</h3>
+                                <p class="text-gray-200">Agradecemos imensamente o carinho e o interesse de todos! Nos vemos na festa!</p>
+                            </div>
+
+                            <div class="flex flex-wrap gap-4 mt-6 justify-center">
+                                <label for="modal-toggle" class="inline-block px-6 py-2 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition cursor-pointer">Saiba Mais sobre o Evento</label>
+                            </div>
                        </div>
                     </div>
                 </div>
@@ -39,3 +54,32 @@ description: "Participe do nosso evento de 25 anos! Garanta seu ingresso para um
         </div>
     </div>
 </section>
+
+<script>
+    // Define a data final da contagem regressiva (Ano, Mês-1, Dia, Hora, Minuto, Segundo)
+    const countdownDate = new Date("2025-08-02T17:00:00").getTime();
+
+    // Atualiza a contagem a cada segundo
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        // Cálculos de tempo
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Exibe o resultado nos elementos
+        document.getElementById("days").innerText = String(days).padStart(2, '0');
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+
+        // Se a contagem terminar
+        if (distance < 0) {
+            clearInterval(interval);
+            document.getElementById("countdown-container").innerHTML = '<div class="text-2xl font-bold text-center w-full ukrainian-gradient-text">A celebração já começou!</div>';
+        }
+    }, 1000);
+</script>
