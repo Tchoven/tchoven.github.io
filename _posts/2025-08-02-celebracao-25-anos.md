@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Uma Noite para a História: Celebramos Nossos 25 Anos!"
-date: 2025-08-04
+date: 2025-08-03 # <-- DATA ALTERADA AQUI
 description: "Reviva os melhores momentos da nossa inesquecível festa de 25 anos, uma noite de emoção, dança e comunidade."
 image: /assets/img/grupo-tchoven.png
 ---
