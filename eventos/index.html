@@ -1,92 +1,26 @@
 ---
 layout: default
 title: Eventos
-description: "Participe do nosso evento de 25 anos! Garanta seu ingresso para uma noite histórica com Divina Liturgia, dança folclórica, jantar festivo e muita celebração."
+description: "Confira os futuros eventos e celebrações do Grupo Folclórico Ucraniano Tchóven."
 ---
-<input type="checkbox" id="modal-toggle" />
-<div class="modal-container">
-    <div class="modal-content bg-[#0d1a2b] w-11/12 max-w-3xl max-h-[90vh] overflow-y-auto p-6 md:p-8 rounded-2xl border border-[#005BBB]/30 custom-shadow relative">
-        <label for="modal-toggle" class="absolute top-4 right-4 text-gray-400 hover:text-white transition cursor-pointer z-10"><i class="fas fa-times text-2xl"></i></label>
-        <div class="text-center mb-8"><h2 class="text-3xl md:text-4xl font-bold mb-2">Conheça os Detalhes da <span class="ukrainian-gradient-text">Celebração</span></h2><p class="text-lg text-gray-300 max-w-2xl mx-auto">Preparamos uma noite inesquecível para celebrar nossa história com você.</p></div>
-        <div class="space-y-8">
-            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-liturgia.png' | relative_url }}" alt="Igreja" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Divina Liturgia Solene</h3><p class="text-gray-300 text-justify">Iniciaremos nossa celebração com um momento de fé e gratidão. Uma Divina Liturgia em Ação de Graças pelos 25 anos do grupo na Paróquia N. S. do Perpétuo Socorro.</p></div></div>
-            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/grupo-tchoven.png' | relative_url }}" alt="Dançarinos" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Apresentação do Grupo Tchóven</h3><p class="text-gray-300 text-justify">O coração da nossa celebração! Nossos dançarinos apresentarão coreografias que contam a história e a alegria do povo ucraniano, em uma performance cheia de energia e paixão.</p></div></div>
-            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-jantar.jpg' | relative_url }}" alt="Buffet" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Jantar Festivo</h3><p class="text-gray-300 text-justify">Após as apresentações, um delicioso jantar será servido em formato de buffet. Com uma variedade de opções para agradar a todos, será o momento perfeito para confraternizar.</p></div></div>
-            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left"><img src="{{ '/assets/img/detalhe-musica.jpg' | relative_url }}" alt="Músico" class="w-full md:w-1/3 h-40 object-cover rounded-lg"><div><h3 class="text-xl font-bold mb-2 text-[#FFD500]">Animação com Celso Taborda</h3><p class="text-gray-300 text-justify">Após o jantar, a festa continua! O talentoso Celso Taborda irá animar a noite com um repertório vibrante, garantindo que ninguém fique parado. Prepare-se para dançar!</p></div></div>
-        </div>
-    </div>
-</div>
-
-<section id="events" class="py-20">
+<section id="events" class="py-20 md:py-28">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold mb-4">Evento de <span class="ukrainian-gradient-text">25 Anos</span></h2><p class="text-lg text-gray-300 max-w-2xl mx-auto">Participe deste momento histórico e celebre a cultura ucraniana com a gente!</p></div>
-        
-        <div class="max-w-4xl mx-auto bg-cover bg-center rounded-xl overflow-hidden border border-[#005BBB]/30 custom-shadow" style="background-image: url('{{ '/assets/img/evento-card-bg.png' | relative_url }}')">
-            <div class="bg-[#14243c]/80 backdrop-blur-sm p-8 md:p-12">
+        <div class="text-center max-w-2xl mx-auto">
+            
+            <i class="far fa-calendar-times text-6xl text-[#005BBB] mb-6"></i>
 
-                <div id="countdown-container" class="flex justify-center items-center gap-4 md:gap-8 text-white text-center mb-10 h-[80px]">
-                    <div class="countdown-item"><span id="days" class="number">00</span><span class="label">Dias</span></div>
-                    <div class="countdown-item"><span id="hours" class="number">00</span><span class="label">Horas</span></div>
-                    <div class="countdown-item"><span id="minutes" class="number">00</span><span class="label">Minutos</span></div>
-                    <div class="countdown-item"><span id="seconds" class="number">00</span><span class="label">Segundos</span></div>
-                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Nenhum Evento Agendado
+            </h2>
 
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="text-center flex-shrink-0"><div class="text-2xl font-bold">AGO</div><div class="text-6xl font-extrabold text-[#FFD500]">02</div><div class="text-2xl font-bold">2025</div></div>
-                    <div class="md:border-l-2 border-[#FFD500]/50 md:pl-8 flex-grow">
-                        <h3 class="text-3xl font-bold mb-4">Celebração de 25 Anos do Tchóven</h3>
-                        <div class="space-y-4"><p><strong class="text-[#FFD500]">17:00:</strong> Divina Liturgia de Ação de Graças na Igreja Greco-Católica Ucraniana N. S. do Perpétuo Socorro.</p><p><strong class="text-[#FFD500]">A partir das 19:00:</strong> Atrações no Salão da Igreja com Apresentação de Dança, Jantar Festivo e Animação com <strong class="text-white">Celso Taborda</strong>.</p></div>
-                        <div class="mt-6 border-t border-gray-600 pt-6">
-                            
-                            <div class="sold-out-banner">
-                                <h3 class="text-2xl font-bold mb-2">INGRESSOS ESGOTADOS</h3>
-                                <p class="text-gray-200">Agradecemos imensamente o carinho e o interesse de todos! Nos vemos na festa!</p>
-                            </div>
+            <p class="text-lg text-gray-300 mb-8">
+                No momento, não temos eventos especiais programados. Agradecemos seu interesse e o convidamos a conferir nossas próximas apresentações folclóricas!
+            </p>
 
-                            <div class="flex flex-wrap gap-4 mt-6 justify-center">
-                                <label for="modal-toggle" class="inline-block px-6 py-2 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition cursor-pointer">Saiba Mais sobre o Evento</label>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-            </div>
+            <a href="{{ '/apresentacoes/' | relative_url }}" class="inline-block px-8 py-3 border-2 border-[#FFD500] text-[#FFD500] rounded-full font-medium hover:bg-[#FFD500]/10 transition">
+                Ver Próximas Apresentações
+            </a>
+
         </div>
     </div>
 </section>
-
-<script>
-    const countdownDate = new Date("2025-08-02T17:00:00").getTime();
-    const countdownContainer = document.getElementById("countdown-container");
-
-    const interval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-
-        // Se a contagem ainda estiver rolando
-        if (distance > 0) {
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Garante que os elementos existam antes de tentar atualizá-los
-            const daysEl = document.getElementById("days");
-            if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
-            
-            const hoursEl = document.getElementById("hours");
-            if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
-            
-            const minutesEl = document.getElementById("minutes");
-            if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
-            
-            const secondsEl = document.getElementById("seconds");
-            if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
-        
-        // Se a contagem terminar
-        } else {
-            clearInterval(interval);
-            // Substitui o conteúdo do container pela palavra "Chegou!"
-            countdownContainer.innerHTML = '<div class="text-5xl font-bold text-center w-full ukrainian-gradient-text animate-pulse">Chegou!</div>';
-        }
-    }, 1000);
-</script>
