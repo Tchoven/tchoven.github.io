@@ -13,6 +13,8 @@ navigation:
     url: /apresentacoes/
   - title: Galeria
     url: /galeria/
+  - title: Notícias
+    url: /noticias/
   - title: Apoiadores & Contato
     url: /apoiadores-e-contato/
 
