@@ -14,6 +14,27 @@
 </head>
 <body class="font-sans">
 
+    <!-- ========================================================= -->
+    <!--      NOVO: MODAL DE AGRADECIMENTO (TELA CHEIA)           -->
+    <!-- ========================================================= -->
+    {% if page.title == "Início" %}
+    <div id="welcome-modal">
+        <div class="modal-content">
+            <img src="{{ '/assets/img/logo-25-anos.png' | relative_url }}" alt="Logo 25 Anos" class="h-24 w-24 mx-auto mb-4"/>
+            <h2 class="font-handwritten text-5xl md:text-6xl mb-4 ukrainian-gradient-text">Obrigado!</h2>
+            <p class="text-lg text-gray-200 max-w-lg mx-auto leading-relaxed mb-8">
+                Nossa celebração de 25 anos foi inesquecível, e não seria o mesmo sem você. Agradecemos de coração a todos que estiveram presentes e compartilharam essa alegria conosco!
+            </p>
+            <button id="close-welcome-modal-btn" class="px-8 py-3 bg-gradient-to-r from-[#005BBB] to-[#003D7A] rounded-full font-medium hover:shadow-lg hover:shadow-[#005BBB]/30 transition">
+                Entrar no Site
+            </button>
+        </div>
+    </div>
+    {% endif %}
+    <!-- ========================================================= -->
+    <!--                  FIM DO BLOCO NOVO                      -->
+    <!-- ========================================================= -->
+
     {% include header.html %}
 
     <main class="page-content-wrapper">
@@ -34,5 +55,46 @@
             });
         }
     </script>
+    
+    <!-- Script para controlar o Modal de Boas-Vindas -->
+    {% if page.title == "Início" %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('welcome-modal');
+            const closeBtn = document.getElementById('close-welcome-modal-btn');
+            const body = document.body;
+
+            const openModal = () => {
+                modal.classList.add('visible');
+                body.classList.add('modal-open');
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('visible');
+                body.classList.remove('modal-open');
+            };
+            
+            // Abre o modal assim que a página carrega
+            openModal();
+
+            // Fecha o modal ao clicar no botão
+            closeBtn.addEventListener('click', closeModal);
+
+            // Fecha o modal ao clicar fora do conteúdo (no overlay)
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Fecha o modal ao pressionar a tecla 'Escape'
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+    {% endif %}
 </body>
 </html>
