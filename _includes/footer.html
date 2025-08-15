@@ -1,9 +1,66 @@
-<footer class="bg-[#0d1a2b] py-12 border-t border-[#005BBB]/20">
-    <div class="container mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">© {{ 'now' | date: "%Y" }} {{ site.title }}. Todos os direitos reservados.</p>
-        <div class="flex justify-center space-x-6 mt-4">
-            <a href="https://www.facebook.com/p/Grupo-Folcl%C3%B3rico-Ucraniano-Tch%C3%B3ven-100063499751781/?_rdr" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition" aria-label="Visite nosso Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
-            <a href="https://www.instagram.com/folcloretchoven" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition" aria-label="Visite nosso Instagram"><i class="fab fa-instagram text-lg"></i></a>
+<footer class="bg-[#0d1a2b] py-16 border-t border-[#005BBB]/30">
+    <div class="container mx-auto px-4">
+        <!-- Grid principal de 3 colunas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left mb-10">
+            
+            <!-- Coluna 1: Sobre o Grupo -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white">{{ site.title }}</h3>
+                <p class="text-gray-400 text-sm">
+                    Preservando e celebrando a rica tradição cultural ucraniana através da dança e da comunidade há mais de duas décadas.
+                </p>
+            </div>
+
+            <!-- Coluna 2: Links Rápidos -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    {% for item in site.navigation %}
+                        <li>
+                            <a href="{{ item.url | relative_url }}" class="text-gray-400 hover:text-[#FFD500] transition">
+                                {{ item.title | replace: '<br>', '' }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Contato e Redes Sociais -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white">Contato</h3>
+                <div class="space-y-3 text-gray-400 text-sm">
+                    <p class="flex items-center justify-center md:justify-start gap-3">
+                        <i class="fas fa-map-marker-alt w-4 text-center text-[#FFD500]"></i>
+                        <span>Salão da Igreja - Rua Maranhão, 475, São José dos Pinhais - PR</span>
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start gap-3">
+                        <i class="fas fa-envelope w-4 text-center text-[#FFD500]"></i>
+                        <a href="mailto:folcloretchoven@gmail.com" class="hover:text-[#FFD500] transition">folcloretchoven@gmail.com</a>
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start gap-3">
+                        <i class="fab fa-whatsapp w-4 text-center text-[#FFD500]"></i>
+                        <a href="tel:+5541996888558" class="hover:text-[#FFD500] transition">(41) 99688-8558</a>
+                    </p>
+                </div>
+                <div class="flex justify-center md:justify-start space-x-6 pt-4">
+                    <a href="https://www.facebook.com/p/Grupo-Folcl%C3%B3rico-Ucraniano-Tch%C3%B3ven-100063499751781/?_rdr" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition" aria-label="Visite nosso Facebook">
+                        <i class="fab fa-facebook-f text-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/folcloretchoven" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FFD500] transition" aria-label="Visite nosso Instagram">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Linha divisória -->
+        <hr class="border-t border-[#005BBB]/30 my-8">
+
+        <!-- Linha de Copyright -->
+        <div class="text-center text-gray-500 text-sm">
+            <p class="mb-2">Feito com <span class="text-red-500">&hearts;</span> para preservar nossa cultura</p>
+            <p>© {{ 'now' | date: "%Y" }} {{ site.title }}. Todos os direitos reservados.</p>
         </div>
     </div>
 </footer>
